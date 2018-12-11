@@ -1,0 +1,306 @@
+/* colors 
+font-family: 'Roboto', sans-serif;
+font-family: 'Montserrat', sans-serif; */
+
+
+/* Base CSS */
+
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+a:focus {
+    outline: 0 solid
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif
+}
+
+a:hover {
+    text-decoration: none
+}
+
+
+/*
+     * 💪💪💪 HEADER 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
+     */
+
+.header-box {
+    height: 80px;
+}
+
+.logo-img {
+    width: auto;
+    height: 75px;
+    margin-top: -10px;
+    margin-left: -100px;
+}
+
+.header-nav {
+    font-size: 1.1em;
+    padding: 15px;
+}
+
+
+/*
+     * 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪  END HEADER 💪💪💪💪💪
+     */
+
+
+/*
+     * 💪💪💪 CAOUSEL 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
+     */
+
+.carousel-wrapper {
+    height: 700px;
+}
+
+.carousel-heading {
+    margin-top: 15px;
+    z-index: 20;
+    color: white;
+    text-shadow: 2px 2px 2px #f58622;
+    text-align: center;
+    font-weight: 900;
+    font-size: 4em;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+}
+
+.carousel-paragraph {
+    z-index: 20;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+}
+
+.carousel-text-box {
+    position: absolute;
+    z-index: 15;
+    background: rgba(32, 32, 32, .6);
+    height: auto;
+    top: 40%;
+    border-radius: 20px;
+    border: 2px solid #f58622;
+}
+
+.caousel-button []
+/*
+     * 💪💪💪💪💪💪💪💪💪💪💪 END CAROUSEL 💪💪💪💪💪
+     */
+
+
+/* ABOUT SECTION */
+
+#about {}
+
+.about-header {
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    margin-top: 5%;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 1px 1px 1px #f58622;
+    font-style: italic;
+    font-size: 2.7em;
+}
+
+.about-subheader {
+    margin-top: 4%;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 1.8em;
+}
+
+.about-text {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-size: 1.3em;
+}
+
+
+/* END OF ABOUT SECTION */
+
+
+/* Aminities Section */
+
+hr {
+    border: 1px solid #000;
+}
+
+.amen-header {
+    margin-top: 3%;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    text-shadow: 1px 1px 1px #f58622;
+}
+
+.amen-subheader {
+    margin-top: 2%;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+.amen-items {
+    padding-left: 33%;
+    font-size: 1.2em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+}
+
+
+/* End of Aminities Section */
+
+
+/* Photo Gallery */
+
+#profile-grid {
+    overflow: auto;
+    white-space: normal;
+}
+
+#profile-grid .profile {
+    padding-bottom: 40px;
+}
+
+#profile-grid .panel {
+    padding: 0
+}
+
+#profile-grid .panel-body {
+    padding: 15px
+}
+
+#profile-grid .profile-name {
+    font-weight: bold;
+}
+
+#profile-grid .thumbnail {
+    margin-bottom: 6px;
+}
+
+#profile-grid .panel-thumbnail {
+    overflow: hidden;
+}
+
+#profile-grid .img-rounded {
+    border-radius: 4px 4px 0 0;
+}
+
+.heading {
+    margin-top: 7%;
+    text-shadow: 1px 1px 1px #f58622;
+    font-style: italic;
+}
+
+
+/* End of Photo Galery */
+
++
+/*
+    * 💪💪💪 FOOTER 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
+    */
+
+.footer-nav {
+    padding-top: 0;
+}
+
+.footer-nav-space {
+    padding-top: 2.5%;
+}
+
+.footer-nav-dec {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+}
+
+.footer-name {
+    text-align: center;
+    color: white;
+    margin-top: 1.6%;
+}
+
+.footer-logo {
+    right: 15%;
+    height: 60px;
+    margin-top: .2%;
+}
+
+footer {
+    background-color: #222222;
+    width: 100%;
+    height: 75px;
+}
+
+
+/*
+     * 💪💪💪💪💪💪💪💪💪💪💪💪💪 END FOOTER 💪💪💪💪💪
+     */
+
+
+/* Modal */
+
+.calendar {
+    margin-top: 25px;
+}
+
+.guests {
+    margin-top: 25px;
+}
+
+.modal-body {
+    padding: 0px;
+    padding-top: 0px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    padding-left: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#form-success {
+    margin-top: 5%;
+    font-weight: bolder;
+    text-shadow: 2, 2, 2#000
+}
+
+#form-error {
+    margin-top: 5%;
+}
+
+
+/* End of Modal */

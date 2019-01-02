@@ -11,6 +11,10 @@
     <title>Clenney Beach Box</title>
 
     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.css">
+    <script type="text/javascript" src="jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.js"></script>
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -23,8 +27,9 @@
     <link href="css/style.css" rel="stylesheet">
 
 
+</head>
 
-    <!--[if lt IE 9]>
+<!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
@@ -662,32 +667,29 @@
 
     <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content modal-form">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h3 id="myModalLabel">We'd Love to Hear From You</h3>
                 </div>
                 <div class="modal-body">
 
-                    <form class="form-horizontal col-sm-12 ajax" method="post" action="email.php" id="contact-form">
+                    <form class="form-horizontal col-sm-12 ajax" autocomplete="off" method="post" action="email.php" id="contact-form">
 
                         <div class="form-group"><label>Name</label><input class="form-control required" placeholder="Your name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." type="text" name="name"
                                 id='name'></div>
 
-                        <div class="form-group"><label>Message</label><textarea class="form-control" placeholder="Your message here.." data-placement="top" data-trigger="manual" name="message" id="message"></textarea></div>
+                        <div class="form-group"><label>Message</label><textarea class="form-control required" placeholder="Your message here.." data-content="Please leave a message." data-placement="top" type="text" data-trigger="manual" name="message" id="message"></textarea></div>
 
-                        <div class="form-group"><label>E-Mail</label><input class="form-control email" placeholder="email@you.com (so that we can contact you)" data-placement="top" data-trigger="manual" data-content="Must be a valid e-mail address (user@gmail.com)" type="text"
-                                name="email" id="email"></div>
+                        <div class="form-group"><label>E-Mail</label><input class="form-control email required" placeholder="email@you.com (so that we can contact you)" data-placement="top" data-trigger="manual" data-content="Must be a valid e-mail address (user@gmail.com)"
+                                type="text" name="email" id="email"></div>
 
-                        <div class="form-group"><label>Phone</label><input class="form-control phone" placeholder="999-999-9999" data-placement="top" data-trigger="manual" data-content="Must be a valid phone number (999-999-9999)" type="text" name="phone" id="phone"></div>
+                        <div class="form-group"><label>Phone</label><input class="form-control phone required" placeholder="999-999-9999" data-placement="top" data-trigger="manual" data-content="Must be a valid phone number (999-999-9999)" type="text" name="phone" id="phone"></div>
 
-                        <div class="alert alert-success hide" id="form-alert" role="alert">
-                            This is a success alert—check it out!
-                        </div>
 
-                        <div class="guests">
+                        <div class="form-group">
                             <label for="guest-select">Number of Guests:</label>
-                            <select id="guest" name="guest">
+                            <select class="form-control" id="guest" name="guest">
                         <option value="">--Please choose an option--</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -702,19 +704,27 @@
                         </select>
                         </div>
 
-                        <div class="calendar">
+
+
+                        <div class="text-center">
+
                             <label for="start">Arrive:</label>
-                            <input type="date" id="arrive" name="arrive" value="" min="2018-01-01" max="2019-12-31">
+                            <input class="form-control cal-width cal-arrive" type="text" id="datepicker" name="arrive">
+
 
                             <label for="start">Leave:</label>
-                            <input type="date" id="leave" name="leave" value="" min="2018-01-01" max="2019-12-31">
+                            <input class="form-control cal-width" type="text" id="datepicker1" name="leave">
                         </div>
 
-                        <div class="form-group"><button name="submit" type="submit" id="submit" value="Send" class="btn btn-success pull-right">Send It!</button>
-                            <h3 class="text-center text-danger hide" id="form-error">&nbsp; The form is not valid. </h3>
-                            <h1 class="text-center text-success hide" id="form-success">&nbsp; Message Sent!</h1>
-                        </div>
+                        <input id="test_email" class="email_test" name="test_email" size="25" type="text" value="" data-content="Must be special!">
+
                         <div id="form-messages"></div>
+
+                        <div class="form-group"><button name="submit" type="submit" id="submit" value="Send" class="btn btn-success pull-right">Send It!</button>
+                            <h3 class="text-center text-danger hide" id="form-error">&nbsp; The form is not valid.</h3>
+                            <h3 class="text-center text-success hide" id="form-success">&nbsp; Message Sent!</h3>
+                        </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -727,7 +737,6 @@
 
 
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js " integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa " crossorigin="anonymous "></script>
 
@@ -735,7 +744,9 @@
 
     <script src="js/main.js"></script>
 
-    <script src="js/contact.js"></script>
+    <!-- <script src="js/contact.js"></script> -->
+
+
 
 </body>
 

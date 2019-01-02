@@ -1,18 +1,26 @@
-$(document).ready(function() {
+$(function() {
+    $('#contact-form').goValidate();
 
-    $("#contact-form").submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: "POST",
-            url: "email.php",
-            data: $("#contact-form").serialize(),
+    $('#contact-form').on('submit', function(e) {
+        if (!e.isDefaultPrevented()) {
+            var url = "email.php";
 
-            success: function() {
-                let sending = (document.getElementById('form-success'));
-                console.log(sending);
-            }
-        });
-        e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $(this).serialize(),
+                success: function(data) {
+                    var messageAlert = 'alert-' + data.type;
+                    var messageText = data.message;
+
+                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                    if (messageAlert && messageText) {
+                        $('#contact-form').find('.messages').html(alertBox);
+                        $('#contact-form')[0].reset();
+                    }
+                }
+            });
+            return false;
+        }
     });
-
 });

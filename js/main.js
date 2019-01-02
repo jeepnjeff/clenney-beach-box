@@ -1,17 +1,3 @@
-//   Gallery
-
-// /* show lightbox when clicking a thumbnail */
-// $('a.thumb').click(function(event) {
-//     event.preventDefault();
-//     var content = $('.modal-body');
-//     content.empty();
-//     var title = $(this).attr("title");
-//     $('.modal-title').html(title);
-//     content.html($(this).html());
-//     $(".modal-profile").modal({ show: true });
-// });
-// End Gallery
-
 // Modal
 /* form validation plugin */
 $.fn.goValidate = function() {
@@ -22,8 +8,8 @@ $.fn.goValidate = function() {
         name: {
             regex: /^[A-Za-z]{3,}$/
         },
-        pass: {
-            regex: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/
+        message: {
+            regex: /^[A-Za-z]$/
         },
         email: {
             regex: /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/
@@ -71,6 +57,7 @@ $.fn.goValidate = function() {
             }
 
         } else {
+            $('#form-success').addClass('hide');
             $input.popover('hide');
         }
     };
@@ -94,7 +81,11 @@ $.fn.goValidate = function() {
                 showError($(this));
             }
         });
-        if ($form.find('input.invalid').length) { /* form is not valid */
+
+
+        let test = (document.querySelector('#test_email'));
+
+        if ($form.find('input.invalid').length || ((test.value) != "")) { /* form is not valid */
             e.preventDefault();
             $('#form-error').toggleClass('hide');
         } else {
@@ -102,16 +93,58 @@ $.fn.goValidate = function() {
             setTimeout(function() {
                 $('#myModal').modal('hide');
             }, 2000);
-
-
         }
+
+
+
     });
     return this;
 };
 $('form').goValidate();
-
-
 // End of Modal
+//
+
+
+
+
+
+// 💪💪💪 CONTACT JS 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
+//
+$(function() {
+    $('#contact-form').goValidate();
+
+    $('#contact-form').on('submit', function(e) {
+        if (!e.isDefaultPrevented()) {
+            var url = "email.php";
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: $(this).serialize(),
+                success: function() {
+                    return false;
+                    // var messageAlert = 'alert-' + data.type;
+                    // var messageText = data.message;
+
+                    // var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+                    // if (messageAlert && messageText) {
+                    //     $('#contact-form').find('.messages').html(alertBox);
+                    //     $('#contact-form')[0].reset();
+                }
+
+            });
+            return false;
+        }
+    });
+});
+//
+// 💪💪💪💪💪💪💪💪💪 END CONTACT JS 💪💪💪💪💪
+//
+
+
+
+
+
 
 
 //
@@ -198,3 +231,17 @@ jQuery(document).ready(function($) {
 //
 // 💪💪💪💪💪💪 END SCROLL TO TOP 💪💪💪💪💪
 //
+
+
+// Date Picker 
+$(function() {
+    $("#datepicker").datepicker({
+        duration: 600
+    });
+});
+$(function() {
+    $("#datepicker1").datepicker({
+        duration: 600
+    });
+});
+// End of Date Picker

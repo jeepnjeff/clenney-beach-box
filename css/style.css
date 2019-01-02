@@ -289,12 +289,17 @@ footer {
 
 /* Modal */
 
-.calendar {
-    margin-top: 25px;
+.modal-form {
+    background-color: #ffd2af;
 }
 
-.guests {
-    margin-top: 25px;
+.cal-width {
+    width: 35%;
+    display: inline-block;
+}
+
+.cal-arrive {
+    margin-right: 20px;
 }
 
 .modal-body {
@@ -313,12 +318,26 @@ footer {
 #form-success {
     margin-top: 5%;
     font-weight: bolder;
-    text-shadow: 2, 2, 2#000
+    text-shadow: 2, 2, 10, green;
+    font-size: 2.56em;
 }
 
 #form-error {
     margin-top: 5%;
+    text-shadow: 2, 2, 10, red;
+    font-size: 2.5em;
 }
+
+.captcha {
+    display: table;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+
+/* #test_email {
+    display: none;
+} */
 
 
 /* End of Modal */

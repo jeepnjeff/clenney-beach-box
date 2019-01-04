@@ -334,10 +334,10 @@ footer {
     padding-top: 15px;
 }
 
-
-/* #test_email {
+#title {
     display: none;
-} */
+    visibility: hidden;
+}
 
 
 /* End of Modal */

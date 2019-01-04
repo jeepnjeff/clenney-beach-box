@@ -8,9 +8,6 @@ $.fn.goValidate = function() {
         name: {
             regex: /^[A-Za-z]{3,}$/
         },
-        message: {
-            regex: /^[A-Za-z]$/
-        },
         email: {
             regex: /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/
         },
@@ -83,7 +80,7 @@ $.fn.goValidate = function() {
         });
 
 
-        let test = (document.querySelector('#test_email'));
+        let test = (document.querySelector('#names'));
 
         if ($form.find('input.invalid').length || ((test.value) != "")) { /* form is not valid */
             e.preventDefault();
@@ -123,13 +120,6 @@ $(function() {
                 data: $(this).serialize(),
                 success: function() {
                     return false;
-                    // var messageAlert = 'alert-' + data.type;
-                    // var messageText = data.message;
-
-                    // var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                    // if (messageAlert && messageText) {
-                    //     $('#contact-form').find('.messages').html(alertBox);
-                    //     $('#contact-form')[0].reset();
                 }
 
             });

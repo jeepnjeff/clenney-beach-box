@@ -676,10 +676,12 @@
 
                     <form class="form-horizontal col-sm-12 ajax" autocomplete="off" method="post" action="email.php" id="contact-form">
 
+                        <div class="form-group"><label>Names</label><input class="form-control" placeholder="Your name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." type="text" name="names" id="names"></div>
+
                         <div class="form-group"><label>Name</label><input class="form-control required" placeholder="Your name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." type="text" name="name"
                                 id='name'></div>
 
-                        <div class="form-group"><label>Message</label><textarea class="form-control required" placeholder="Your message here.." data-content="Please leave a message." data-placement="top" type="text" data-trigger="manual" name="message" id="message"></textarea></div>
+                        <div class="form-group"><label>Message</label><textarea class="form-control message required" placeholder="Your message here.." data-content="Please leave a message." data-placement="top" type="text" data-trigger="manual" name="message" id="message"></textarea></div>
 
                         <div class="form-group"><label>E-Mail</label><input class="form-control email required" placeholder="email@you.com (so that we can contact you)" data-placement="top" data-trigger="manual" data-content="Must be a valid e-mail address (user@gmail.com)"
                                 type="text" name="email" id="email"></div>
@@ -716,7 +718,6 @@
                             <input class="form-control cal-width" type="text" id="datepicker1" name="leave">
                         </div>
 
-                        <input id="test_email" class="email_test" name="test_email" size="25" type="text" value="" data-content="Must be special!">
 
                         <div id="form-messages"></div>
 

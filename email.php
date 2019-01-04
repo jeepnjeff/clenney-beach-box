@@ -1,8 +1,8 @@
 
 <?php
 
-include "phpmailer/class.phpmailer.php";
-include "phpmailer/class.smtp.php";
+require_once "phpmailer/class.phpmailer.php";
+require_once "phpmailer/class.smtp.php";
 
 $mail = new PHPMailer();
 
@@ -24,8 +24,8 @@ $mail->Subject = 'Clenney Beach has sent you a message!.';
 $mail->Body = 'Name: '.$_POST['name'].'<br><br>Email:  '.$_POST['email'].'<br><br>Phone: '.$_POST['phone'].'<br><br>Guest: '.$_POST['guest'].'<br>Arrive: '.$_POST['arrive'].'<br>Leave: '.$_POST['leave'].'<br><br>Message: '.$_POST['message'];
 
 
-if ($_POST['email_test'] != ''){
-  return false;
+if (isset($_POST['names']) && !empty($_POST['names'])){
+  die();
 }else if ($mail->Send()){
   echo "Mailer Error:".$mail->ErrorInfo;
   }else {

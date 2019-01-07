@@ -80,9 +80,8 @@ $.fn.goValidate = function() {
         });
 
 
-        let test = (document.querySelector('#names'));
 
-        if ($form.find('input.invalid').length || ((test.value) != "")) { /* form is not valid */
+        if ($form.find('input.invalid').length) { /* form is not valid */
             e.preventDefault();
             $('#form-error').toggleClass('hide');
         } else {

@@ -24,7 +24,7 @@ $mail->Subject = 'Clenney Beach has sent you a message!.';
 $mail->Body = 'Name: '.$_POST['name'].'<br><br>Email:  '.$_POST['email'].'<br><br>Phone: '.$_POST['phone'].'<br><br>Guest: '.$_POST['guest'].'<br>Arrive: '.$_POST['arrive'].'<br>Leave: '.$_POST['leave'].'<br><br>Message: '.$_POST['message'];
 
 
-if (isset($_POST['names']) && !empty($_POST['names'])){
+if (isset($_POST['names']) && !empty($_POST['names']) && empty($_POST['mame'])){
   die();
 }else if ($mail->Send()){
   echo "Mailer Error:".$mail->ErrorInfo;

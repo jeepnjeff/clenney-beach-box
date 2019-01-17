@@ -147,7 +147,7 @@ var scrolltotop = {
         fadeduration: [500, 100]
     },
     controlHTML: '<img src="images/top.jpeg" />',
-    controlattrs: {
+        controlattrs: {
         offsetx: 100,
         offsety: 75
     },

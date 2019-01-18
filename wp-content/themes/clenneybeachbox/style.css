@@ -508,6 +508,7 @@ template {
     .menu-toggle {
         display: none;
     }
+
     .main-navigation ul {
         display: block;
     }
@@ -833,7 +834,7 @@ object {
  * 💪💪💪💪💪💪💪 CUSTOM THEME CSS 💪💪💪💪💪
  */
 
-    
+
 /* colors 
 font-family: 'Roboto', sans-serif;
 font-family: 'Montserrat', sans-serif; */
@@ -875,11 +876,11 @@ body {
     height: 100%;
     font-family: 'Montserrat', sans-serif;
     background: url('./assets/images/tile.jpg');
-    }
+}
 
-    .logged-in .navbar-fixed-top {
-       top: 32px;
-    }
+.logged-in .navbar-fixed-top {
+    top: 32px;
+}
 
 a:hover {
     text-decoration: none
@@ -904,7 +905,7 @@ a:hover {
 .header-nav {
     font-size: 1.5em;
     padding: 15px;
-   
+
 }
 
 
@@ -925,279 +926,91 @@ a:hover {
     margin-top: 15px;
     z-index: 20;
     color: white;
-    /* colors 
+}
+
+/* colors 
 	font-family: 'Roboto', sans-serif;
 	font-family: 'Montserrat', sans-serif; */
-    /* Base CSS */
-    .alignleft {
-        float: left;
-        margin-right: 15px;
-    }
-    .alignright {
-        float: right;
-        margin-left: 15px;
-    }
-    .aligncenter {
-        display: block;
-        margin: 0 auto 15px;
-    }
-    a:focus {
-        outline: 0 solid
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: 0 0 15px;
-        font-weight: 700;
-    }
-    html,
-    body {
-        height: 100%;
-        font-family: 'Montserrat', sans-serif
-    }
-    a:hover {
-        text-decoration: none
-    }
-    /*
+/* Base CSS */
+
+.alignleft {
+    float: left;
+    margin-right: 15px;
+}
+
+.alignright {
+    float: right;
+    margin-left: 15px;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto 15px;
+}
+
+a:focus {
+    outline: 0 solid
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 15px;
+    font-weight: 700;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Montserrat', sans-serif
+}
+
+a:hover {
+    text-decoration: none
+}
+
+/*
 			 * 💪💪💪 HEADER 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
 			 */
-    .header-box {
-        height: 80px;
-    }
-    .logo-img {
-        width: auto;
-        height: 75px;
-        margin-top: -10px;
-        margin-left: -100px;
-    }
-    .header-nav {
-        font-size: 1.1em;
-        padding: 15px;
-    }
-    /*
+.header-box {
+    height: 80px;
+}
+
+.logo-img {
+    width: auto;
+    height: 65px;
+    margin-top: -2.7%;
+    margin-left: -100%
+}
+
+.header-nav {
+    font-size: 1.1em;
+    padding: 15px;
+}
+
+/*
 			 * 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪  END HEADER 💪💪💪💪💪
 			 */
-    /*
+/*
 			 * 💪💪💪 CAOUSEL 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
 			 */
-    .carousel-wrapper {
-        height: 700px;
-    }
-    .carousel-heading {
-        margin-top: 15px;
-        z-index: 20;
-        color: white;
-        text-shadow: 2px 2px 2px #f58622;
-        text-align: center;
-        font-weight: 900;
-        font-size: 4em;
-        font-style: italic;
-        font-family: 'Roboto', sans-serif;
-    }
-    .carousel-paragraph {
-        z-index: 20;
-        color: white;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
-        font-size: 1.5em;
-        font-weight: 900;
-        text-align: center;
-    }
-    .carousel-text-box {
-        position: absolute;
-        z-index: 15;
-        background: rgba(32, 32, 32, .6);
-        height: auto;
-        top: 40%;
-        border-radius: 20px;
-        border: 2px solid #f58622;
-    }
-    .caousel-button []
-    /*
-			 * 💪💪💪💪💪💪💪💪💪💪💪 END CAROUSEL 💪💪💪💪💪
-			 */
-    /* ABOUT SECTION */
-    #about {}
-    .about-header {
-        text-align: center;
-        padding: 15px;
-        font-weight: bold;
-        margin-top: 5%;
-        font-family: 'Roboto', sans-serif;
-        text-shadow: 1px 1px 1px #f58622;
-        font-style: italic;
-        font-size: 2.7em;
-    }
-    .about-subheader {
-        margin-top: 4%;
-        font-family: 'Roboto', sans-serif;
-        font-style: italic;
-        font-size: 1.8em;
-    }
-    .about-text {
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizelegibility;
-        font-size: 1.3em;
-    }
-    /* END OF ABOUT SECTION */
-    /* Aminities Section */
-    hr {
-        border: 1px solid #000;
-    }
-    .amen-header {
-        margin-top: 3%;
-        text-align: center;
-        font-weight: bolder;
-        font-family: 'Roboto', sans-serif;
-        font-style: italic;
-        text-shadow: 2px 2px 2px #f58622;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizelegibility;
-    }
-    .amen-subheader {
-        margin-top: 2%;
-        text-align: center;
-        font-weight: bolder;
-        font-family: 'Roboto', sans-serif;
-        font-style: italic;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizelegibility;
-    }
-    .amen-items {
-        padding-left: 33%;
-        font-size: 1.2em;
-        -webkit-font-smoothing: antialiased;
-        text-rendering: optimizelegibility;
-    }
-    .amen-section {
-        background: #222222;
-        color: white;
-    }
-    hr {
-        background: #f58622;
-        height: 2px;
-    }
-    /* End of Aminities Section */
-    /* Photo Gallery */
-    #profile-grid {
-        overflow: auto;
-        white-space: normal;
-    }
-    #profile-grid .profile {
-        padding-bottom: 40px;
-    }
-    #profile-grid .panel {
-        padding: 0
-    }
-    #profile-grid .panel-body {
-        padding: 15px
-    }
-    #profile-grid .profile-name {
-        font-weight: bold;
-    }
-    #profile-grid .thumbnail {
-        margin-bottom: 6px;
-    }
-    #profile-grid .panel-thumbnail {
-        overflow: hidden;
-    }
-    #profile-grid .img-rounded {
-        border-radius: 4px 4px 0 0;
-    }
-    .heading {
-        margin-top: 7%;
-        text-shadow: 1px 1px 1px #f58622;
-        font-style: italic;
-    }
-    .panel-body {
-        background: #222222;
-        color: white;
-    }
-    /* End of Photo Galery */
-    +/*
-			* 💪💪💪 FOOTER 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
-			*/
-    .footer-nav {
-        padding-top: 0;
-    }
-    .footer-nav-space {
-        padding-top: 3.5%;
-    }
-    .footer-nav-dec {
-        text-decoration: none;
-        color: white;
-        font-size: 1.1em;
-    }
-    .footer-name {
-        color: white;
-        margin-top: 1.6%;
-    }
-    .footer-logo {
-        right: 0%;
-        height: 60px;
-        margin-top: .5%;
-    }
-    footer {
-        background-color: #222222;
-        width: 100%;
-        height: 75px;
-    }
-    /*
-			 * 💪💪💪💪💪💪💪💪💪💪💪💪💪 END FOOTER 💪💪💪💪💪
-			 */
-    /* Modal */
-    .modal-form {
-        background-color: #ffd2af;
-    }
-    .cal-width {
-        width: 35%;
-        display: inline-block;
-    }
-    .cal-arrive {
-        margin-right: 20px;
-    }
-    .modal-body {
-        padding: 0px;
-        padding-top: 0px;
-        padding-right: 15px;
-        padding-bottom: 0px;
-        padding-left: 15px;
-    }
-    .form-group {
-        margin-bottom: 15px;
-        margin-top: 15px;
-    }
-    #form-success {
-        margin-top: 5%;
-        font-weight: bolder;
-        text-shadow: 2, 2, 10, green;
-        font-size: 2.56em;
-    }
-    #form-error {
-        margin-top: 5%;
-        text-shadow: 2, 2, 10, red;
-        font-size: 2.5em;
-    }
-    .captcha {
-        display: table;
-        margin: 0 auto;
-        padding-top: 15px;
-    }
-    #names {
-        display: none;
-        visibility: hidden;
-    }
-    /* End of Modal */
+.carousel-wrapper {
+    height: 700px;
+}
+
+.carousel-heading {
+    margin-top: 15px;
+    z-index: 20;
     color: white;
     text-shadow: 2px 2px 2px #f58622;
     text-align: center;
     font-weight: 900;
     font-size: 4em;
     font-style: italic;
-    font-family: 'Roboto',
-    sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .carousel-paragraph {
@@ -1220,13 +1033,11 @@ a:hover {
 }
 
 .caousel-button []
+
 /*
-	 * 💪💪💪💪💪💪💪💪💪💪💪 END CAROUSEL 💪💪💪💪💪
-	 */
-
-
+			 * 💪💪💪💪💪💪💪💪💪💪💪 END CAROUSEL 💪💪💪💪💪
+			 */
 /* ABOUT SECTION */
-
 #about {}
 
 .about-header {
@@ -1253,12 +1064,8 @@ a:hover {
     font-size: 1.3em;
 }
 
-
 /* END OF ABOUT SECTION */
-
-
 /* Aminities Section */
-
 hr {
     border: 1px solid #000;
 }
@@ -1294,6 +1101,282 @@ hr {
 .amen-section {
     background: #222222;
     color: white;
+}
+
+hr {
+    background: #f58622;
+    height: 2px;
+}
+
+/* End of Aminities Section */
+/* Photo Gallery */
+#profile-grid {
+    overflow: auto;
+    white-space: normal;
+}
+
+#profile-grid .profile {
+    padding-bottom: 40px;
+}
+
+#profile-grid .panel {
+    padding: 0
+}
+
+#profile-grid .panel-body {
+    padding: 15px
+}
+
+#profile-grid .profile-name {
+    font-weight: bold;
+}
+
+#profile-grid .thumbnail {
+    margin-bottom: 6px;
+}
+
+#profile-grid .panel-thumbnail {
+    overflow: hidden;
+}
+
+#profile-grid .img-rounded {
+    border-radius: 4px 4px 0 0;
+}
+
+.heading {
+    margin-top: 7%;
+    text-shadow: 1px 1px 1px #f58622;
+    font-style: italic;
+}
+
+.panel-body {
+    background: #222222;
+    color: white;
+}
+
+/* End of Photo Galery */
++
+
+/*
+			* 💪💪💪 FOOTER 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
+			*/
+.footer-nav {
+    padding-top: 0;
+}
+
+.footer-nav-space {
+    padding-top: 3.5%;
+}
+
+.footer-nav-dec {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1em;
+}
+
+.footer-name {
+    color: white;
+    margin-top: 1.6%;
+}
+
+.footer-logo {
+    right: 0%;
+    height: 60px;
+    margin-top: .5%;
+}
+
+footer {
+    background-color: #222222;
+    width: 100%;
+    height: 75px;
+}
+
+/*
+			 * 💪💪💪💪💪💪💪💪💪💪💪💪💪 END FOOTER 💪💪💪💪💪
+			 */
+/* Modal */
+.modal-form {
+    background-color: #ffd2af;
+}
+
+.cal-width {
+    width: 35%;
+    display: inline-block;
+}
+
+.cal-arrive {
+    margin-right: 20px;
+}
+
+.modal-body {
+    padding: 0px;
+    padding-top: 0px;
+    padding-right: 15px;
+    padding-bottom: 0px;
+    padding-left: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+#form-success {
+    margin-top: 5%;
+    font-weight: bolder;
+    text-shadow: 2, 2, 10, green;
+    font-size: 2.56em;
+}
+
+#form-error {
+    margin-top: 5%;
+    text-shadow: 2, 2, 10, red;
+    font-size: 2.5em;
+}
+
+.captcha {
+    display: table;
+    margin: 0 auto;
+    padding-top: 15px;
+}
+
+#names {
+    display: none;
+    visibility: hidden;
+}
+
+/* End of Modal */
+color: white;
+text-shadow: 2px 2px 2px #f58622;
+text-align: center;
+font-weight: 900;
+font-size: 4em;
+font-style: italic;
+font-family: 'Roboto',
+sans-serif;
+}
+
+.carousel-paragraph {
+    z-index: 20;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+}
+
+.carousel-text-box {
+    position: absolute;
+    z-index: 15;
+    background: rgba(32, 32, 32, .6);
+    height: auto;
+    top: 40%;
+    border-radius: 20px;
+    border: 2px solid #f58622;
+}
+
+.caousel-button []
+/*
+	 * 💪💪💪💪💪💪💪💪💪💪💪 END CAROUSEL 💪💪💪💪💪
+	 */
+
+
+/* ABOUT SECTION */
+
+#about {}
+
+
+.about-header {
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    margin-top: 5%;
+    font-family: 'Roboto', sans-serif;
+    text-shadow: 1px 1px 1px #f58622;
+    font-style: italic;
+    font-size: 2.7em;
+}
+
+.about-subheader {
+    margin-top: 4%;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 1.8em;
+}
+
+.about-text {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-size: 1.3em;
+}
+
+
+/* END OF ABOUT SECTION */
+
+
+/* Aminities Section */
+
+hr {
+    border: 1px solid #000;
+}
+
+.amen-img {
+    display: table;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+}
+
+.amen-img-default {
+    background: url('assets/images/tile.jpg') no-repeat;
+    background-size: cover;
+}
+
+.amen-title {
+    font-size: 4em;
+    background: rgba(200, 200, 200, .7);
+    width: 20%;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.amen-header {
+    margin-top: 8%;
+    margin-bottom: 4%;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    text-shadow: 2px 2px 2px #f58622;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+
+}
+
+.amen-subheader {
+    margin-top: 2%;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+
+}
+
+.amen-items {
+    padding-left: 33%;
+    font-size: 1.5em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    font-weight: 600;
+}
+
+.amen-section {
+    background: url('assets/images/tile.jpg');
+    color: #000;
+    z-index: 2;
+    margin-top: 15.5%;
 }
 
 hr {
@@ -1388,7 +1471,7 @@ footer {
     background-color: #222222;
     width: 100%;
     height: 75px;
-    margin-top:3%;
+    margin-top: 3%;
 }
 
 
@@ -1458,33 +1541,35 @@ footer {
  */
 
 /* Fix the top when logged in  */
- @media screen and (max-width: 782px) {
+@media screen and (max-width: 782px) {
     .logged-in .navbar-fixed-top {
         top: 46px;
-     } 
+    }
 }
 
 /* fix navbar brand img   */
-    @media screen and (max-width: 767px) {
-        .logo-img {
-            width: auto;
-            height: 50px;
-            margin-top: -8px;
-            margin-left: 0px;
-        }
-        .header-box {
-            height: 60px;
-        }
+@media screen and (max-width: 767px) {
+    .logo-img {
+        width: auto;
+        height: 50px;
+        margin-top: -8px;
+        margin-left: 0px;
     }
 
-    @media screen and (max-width: 300px) {
-        .logo-img {
-            width: auto;
-            height: 35px;
-            margin-top: -6px;
-            margin-left: 0px;
-        }
-        .header-box {
-            height: 38px;
-        }
+    .header-box {
+        height: 60px;
     }
+}
+
+@media screen and (max-width: 300px) {
+    .logo-img {
+        width: auto;
+        height: 35px;
+        margin-top: -6px;
+        margin-left: 0px;
+    }
+
+    .header-box {
+        height: 38px;
+    }
+}

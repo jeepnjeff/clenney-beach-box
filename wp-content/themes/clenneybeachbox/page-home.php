@@ -21,68 +21,9 @@ $rate_description	        =get_field('rate_description');
 
 get_header(); ?>
 
-<!--
--- 💪💪💪 CAROUSEL 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
--->
-<div class="row">
-  <div class="col-sm-12">
-
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+<?php get_template_part('content-carousel'); ?>
+<?php get_template_part('content-about'); ?>
 
 
-      <div class="col-sm-6 col-sm-offset-3 carousel-text-box">
-        <h1 class="carousel-heading">
-          <?php echo($carousel_title); ?>
-        </h1>
-
-        <p class="carousel-paragraph">
-          <?php echo($carousel_desc); ?>
-        </p>
-        <button type="button" data-toggle="modal" href="<?php echo ($carousel_button_link); ?>" class="btn btn-primary carousel-button aligncenter">
-          <?php echo($carousel_button_text); ?> </button>
-      </div>
-      <!-- Wrapper for slides -->
-      <?php  echo do_shortcode('[smartslider3 slider=2]');?>
-    </div>
-  </div>
-</div>
-<!--
--- 💪💪💪💪💪💪💪💪 END OF CAROUSEL 💪💪💪💪💪
--->
-
-<!--
--- 💪💪💪 ABOUT SECTION 💪💪💪💪💪💪💪💪💪💪💪💪
--->
-<div id="about"></div>
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <h2 class="about-header">
-      <?php echo ($description_main_title); ?>
-    </h2>
-
-    <h3 class="about-subheader">
-      <?php echo ($house_description_title); ?>
-    </h3>
-    <p class="about-text">
-      <?php echo($house_description); ?>
-    </p>
-
-    <h3 class="about-subheader">
-      <?php echo($location_title); ?>
-    </h3>
-    <p class="about-text">
-      <?php echo($location_description); ?>
-
-      <h3 class="about-subheader">
-        <?php echo($turnkey_title); ?>
-      </h3>
-      <p class="about-text">
-        <?php echo($turnkey_description); ?>
-      </p>
-
-      <h3 class="about-subheader"><?php echo($rates_title); ?></h3>
-      <p><?php echo($rate_description); ?></p>
-    </div>
-</div>
 
 <?php get_footer();?>

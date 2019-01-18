@@ -146,7 +146,7 @@ var scrolltotop = {
         scrollduration: 1e3,
         fadeduration: [500, 100]
     },
-    controlHTML: '<img src="images/top.jpeg" />',
+    controlHTML: '<img src="./wp-content/themes/clenneybeachbox/assets/images/top.jpeg" />',
         controlattrs: {
         offsetx: 100,
         offsety: 75

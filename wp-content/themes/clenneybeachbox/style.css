@@ -1051,7 +1051,7 @@ a:hover {
     border: 2px solid #be4700;
 }
 
-.caousel-button []
+
 
 /*
 			 * 💪💪💪💪💪💪💪💪💪💪💪 END CAROUSEL 💪💪💪💪💪
@@ -1104,7 +1104,6 @@ a:hover {
 }
 
 /* End of Photo Galery */
-+
 
 /*
 			* 💪💪💪 FOOTER 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
@@ -1256,13 +1255,10 @@ footer {
     border-radius: 10px;
     border: 1px solid #000;
 }
-.amen-house-box{
-padding-top:1%;
-}
 
 .amen-header {
-    margin-top: 8%;
-    margin-bottom: 5%;
+    margin-top: 9%;
+    margin-bottom: 4.8%;
     text-align: center;
     font-weight: bolder;
     font-family: 'Roboto', sans-serif;
@@ -1316,12 +1312,22 @@ font-size: 1.2em;
 }
 
 .amen-section {
-    background: url('assets/images/bluemat.jpeg');
+    background: url('assets/images/bluemat.jpeg') no-repeat;
     background-size: cover;
     color: #fff;
-    z-index: 2;
     margin-top: 15.5%;
 }
+
+.bottom-hr{
+    border-top: 2px solid #be4700;
+    width: 100%;
+    margin-bottom: 3%;
+    margin-top: 3%;
+    
+}
+ .bottom-hr::first-child {
+     display:none;
+ }
 
 /* End of Aminities Section */
 

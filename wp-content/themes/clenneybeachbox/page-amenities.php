@@ -4,13 +4,15 @@
 
 
 <?php get_header(); ?>
+
 <?php
 $thumbnail_url	  = wp_get_attachment_url( get_post_thumbnail_id( $post->ID) );
-
 ?>
-<!-- Amenities -->
-<?php if( has_post_thumbnail() ) {// check for feature image ?>
 
+<!-- Amenities -->
+<!-- Title Section -->
+<?php if( has_post_thumbnail() ) {// check for feature image ?>
+ 
 <section class="amen-img" style="background: url('<?php echo $thumbnail_url; ?>') no-repeat; background-size: cover" ;
   data-type="background" data-speed="2">
   <h1 class="page-title amen-header amen-title aligncenter">AMENITIES</h1>
@@ -18,217 +20,56 @@ $thumbnail_url	  = wp_get_attachment_url( get_post_thumbnail_id( $post->ID) );
 
 <?php } else { //fallback image  ?>
 
-<section class="amen-img amen-img-default" data-type="background" data-speed="2">
+<section class="amen-img" data-type="background" data-speed="2">
   <h1 class="page-title amen-header amen-title aligncenter">AMENITIES</h1>
 </section>
 
 <?php } ?>
+<!-- End Title Section -->
+
 <section class="amen-section">
   <div class="row">
 
     <div class="col-sm-8 col-sm-offset-2 amen-house-box">
-      <div class="subheader-box aligncenter ">
-        <img class="aligncenter amen-icon" src="<?php bloginfo ('template_url'); ?>/assets/images/home.svg" alt="Home Icon">
-        <h3 class="amen-subheader">HOUSE</h3>
+    
+      <?php while ( have_posts() ) : the_post(); ?>
+      
+      <?php the_content(); ?>
+      
+      <?php endwhile; //end of loop?>
+      
+      <?php $loop = new WP_Query( array('post_type' => 'Amenities', 'orderby' => 'post_id', 'order' => 'ASC' ) ); ?>
+      
+      <?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+      
+        <?php 
+        $amenities_title = get_field('amenities_title');
+        $amenities_icon = get_field('amenities_icon');
+        $amenities_items = get_field('amenities_items');
+        ?>
+         <div class="col-sm-12">
+         <section class="bottom-hr"></section>
+         </div>
+      <div class="subheader-box aligncenter">
+     
+        <img class="aligncenter amen-icon" src=<?php echo $amenities_icon; ?>>
+
+        <h3 class="amen-subheader"><?php echo  $amenities_title; ?></h3>
+        
       </div>
       <section>
-      <div class="col-sm-4">
-        <p class="amen-items">WIFI Internet</p>
-        <p class="amen-items">2 Televisions</p>
-        <p class="amen-items">Cable TV</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Children Welcome</p>
-        <p class="amen-items">2 Washer and Dryer</p>
-        <p class="amen-items">Parking</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Game Room</p>
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-      </div>
+        <?php the_content(); ?>
+        
       </section>
-    </div>
-  </div>
-  <!-- Bathrooms -->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <hr>
-      <div class="subheader-box aligncenter">
-        <img class="aligncenter amen-icon" src="<?php bloginfo ('template_url'); ?>/assets/images/bathtub.svg" alt="Bathtub Icon">
-        <h3 class="amen-subheader">BATHROOMS</h3>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">2 Bathrooms</p>
-        <p class="amen-items">1 Half Bath</p>
-        <p class="amen-items">Toilette Paper</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-      </div>
-    </div>
-  </div>
-  <!-- Location -->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <hr>
-      <div class="subheader-box aligncenter">
-        <img class="aligncenter amen-icon" src="<?php bloginfo ('template_url'); ?>/assets/images/location.svg" alt="Location Icon">
-        <h3 class="amen-subheader">LOCATION TYPE</h3>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Near Ocean</p>
-        <p class="amen-items">Ocean Views</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-      </div>
-    </div>
-  </div>
-  <!-- General -->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <hr>
-      <div class="subheader-box aligncenter">
-      <img class="aligncenter amen-icon" src="<?php bloginfo ('template_url'); ?>/assets/images/general.svg" alt="General Icon">
-      <h3 class="amen-subheader">GENERAL</h3>
-</div>
-      <div class="col-sm-4">
-        <p class="amen-items">Linens Provided</p>
-        <p class="amen-items">Washing Machine</p>
-        <p class="amen-items">Clothes Dryer</p>
-        <p class="amen-items">2 Flights of stairs</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Parking</p>
-        <p class="amen-items">Internet</p>
-        <p class="amen-items">Towles Provided</p>
-        <p class="amen-items">Built in 2013</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Iron And Board</p>
-        <p class="amen-items">Hair Dryer</p>
-        <p class="amen-items">Living Room</p>
-      </div>
-    </div>
-  </div>
-  <!-- Kitchen -->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <hr>
-      <div class="subheader-box aligncenter">
-        <img class="aligncenter amen-icon" src="<?php bloginfo ('template_url'); ?>/assets/images/cooking.svg" alt="Kitchen Icon">
-      <h3 class="amen-subheader">KITHCHEN</h3>
-</div>
-      <div class="col-sm-4">
-        <p class="amen-items">Dish Washer</p>
-        <p class="amen-items">Refrigerator</p>
-        <p class="amen-items">Stove</p>
-        <p class="amen-items">Paper Products</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Oven</p>
-        <p class="amen-items">Microwave</p>
-        <p class="amen-items">Coffee Maker & Coffee</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Toster</p>
-        <p class="amen-items">Dishes & Utensiles</p>
-        <p class="amen-items">Living Room</p>
-      </div>
-    </div>
-  </div>
-  <!-- Entertainment -->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <hr>
-      <div class="subheader-box aligncenter">
-        <img class="aligncenter amen-icon" src="<?php bloginfo ('template_url'); ?>/assets/images/spotlights.svg" alt="Location Icon">
-      <h3 class="amen-subheader">FUN</h3>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Living Room Television</p>
-        <p class="amen-items">Game Room Television</p>
-        <p class="amen-items">Cable TV</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">DVD Player</p>
-        <p class="amen-items">Books</p>
-        <p class="amen-items">Games</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Ping Pong Table</p>
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-      </div>
-    </div>
-  </div>
-  <!-- Outside -->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <hr>
-      <div class="subheader-box aligncenter">
-        <img class="aligncenter amen-icon" src="<?php bloginfo ('template_url'); ?>/assets/images/grill.svg" alt="Outdoor Icon">
-      <h3 class="amen-subheader">OUTSIDE</h3>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Balcony</p>
-        <p class="amen-items">Roof Top Deck</p>
-        <p class="amen-items">Outdoor BBQ</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Roof Top Gas Fire Pit </p>
-        <p class="amen-items">Roof Top Refregerator</p>
-        <p class="amen-items"></p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items"> </p>
-        <p class="amen-items"></p>
-        <p class="amen-items"></p>
-      </div>
-    </div>
-  </div>
-  <!-- House Rules -->
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <hr>
-      <div class="subheader-box aligncenter">
-        <img class="aligncenter amen-icon" src="<?php bloginfo ('template_url'); ?>/assets/images/rules.svg" alt="Rules Icon">
-           <h3 class="amen-subheader">HOUSE <br> RULES</h3>
-           </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Check-in 3:00</p>
-        <p class="amen-items">Check-out 10:00</p>
-        <p class="amen-items"></p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">No Parties/Events</p>
-        <p class="amen-items">No Smoking</p>
-        <p class="amen-items">No Pets</p>
-      </div>
-      <div class="col-sm-4">
-        <p class="amen-items">Minimun Age of Primary Renter: 25</p>
-        <p class="amen-items">Max occupancy: 10</p>
-        <p class="amen-items"></p>
-      </div>
+     
 
+    <?php endwhile; ?>
+    
     </div>
-    <div id="photos"></div>
+    
   </div>
+  
 </section>
+
 
 <?php get_footer(); ?>

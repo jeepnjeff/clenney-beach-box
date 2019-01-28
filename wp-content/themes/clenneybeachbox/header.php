@@ -53,7 +53,7 @@
 <!-- navbar wrapper================-->
 <div class="navbar-wrapper">
 		<!-- NavBar======================== -->
-		<div class="navbar navbar-inverse navbar-fixed-top header-box" role="navigation">
+		<div class="navbar navbar-inverse navbar-fixed-top header-box header-gradient" role="navigation">
 				<div class="container">
 						<div class="navbar-header">
 								<button type="button" class="navbar-toggle" data-toggle="collapse" date-target=".navbar-collapse">
@@ -62,7 +62,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 						</button>
-								<a class="navbar-brand" href="#"><img class="logo-img" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/clenny_logo.png" alt="Clenney Box Logo"></a>
+								<a class="navbar-brand" href="#"><img class="logo-img" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/clenney-logo.png" alt="Clenney Box Logo"></a>
 						</div>
 
 <?php

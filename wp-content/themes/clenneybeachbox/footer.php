@@ -41,7 +41,7 @@
         <div>
             <div class="col-sm-3 footer-logo ">
                 <p>
-                    <a href="www.cleannybeachbox.com "><img class="aligncenter footer-logo " src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/clenny_logo.png" alt="Clenney Box Logo"></a>
+                    <a href="www.cleannybeachbox.com "><img class="aligncenter footer-logo " src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/clenney-logo.png" alt="Clenney Box Logo"></a>
                 </p>
             </div>
             <!-- end col -->

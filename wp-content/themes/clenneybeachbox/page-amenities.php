@@ -29,8 +29,10 @@ $thumbnail_url	  = wp_get_attachment_url( get_post_thumbnail_id( $post->ID) );
 
 <section class="amen-section">
   <div class="row">
+<div class="col-sm-12 amen-backdrop">
 
-    <div class="col-sm-8 col-sm-offset-2 amen-house-box">
+
+    <div class="col-sm-8 col-sm-offset-2 amen-section">
     
       <?php while ( have_posts() ) : the_post(); ?>
       
@@ -66,7 +68,7 @@ $thumbnail_url	  = wp_get_attachment_url( get_post_thumbnail_id( $post->ID) );
     <?php endwhile; ?>
     
     </div>
-    
+    </div>
   </div>
   
 </section>

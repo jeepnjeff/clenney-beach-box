@@ -172,7 +172,7 @@ class N2SmartSliderSlide extends N2SmartSliderComponentOwnerAbstract {
 
         $this->addSlideLink();
 
-        $this->attributes['data-slide-duration'] = n2_floatval($this->parameters->get('slide-duration', 0) / 1000);
+        $this->attributes['data-slide-duration'] = n2_floatval(max(0, $this->parameters->get('slide-duration', 0) ) / 1000);
         $this->attributes['data-id']             = $this->id;
 
         $this->classes .= ' n2-ss-slide-' . $this->id;

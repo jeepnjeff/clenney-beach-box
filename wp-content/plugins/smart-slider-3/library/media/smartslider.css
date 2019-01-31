@@ -1,6 +1,5 @@
 
 .n2-in-fullscreen * {
-    -webkit-animation-name: initial;
     animation-name: initial;
 }
 
@@ -51,7 +50,6 @@
 .n2-ss-slider .n2-ow-all *,
 .n2-ss-slider .n2-ow-all *:before,
 .n2-ss-slider .n2-ow-all *:after {
-    -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
 
@@ -78,6 +76,7 @@
     outline: none !important;
     transition: none 0s;
     box-shadow: none;
+    text-decoration: none;
 }
 
 .n2-ss-slider .n2-ow-all b,
@@ -121,8 +120,6 @@
 .n2-ss-slider .n2-ow-all img {
     width: auto;
     box-shadow: none;
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
     border-radius: 0;
     background: transparent;
     background: none;
@@ -141,9 +138,6 @@
 .n2-ss-slider textarea.n2-ow,
 .n2-ss-slider input.n2-ow,
 .n2-ss-slider button.n2-ow {
-    -moz-transition: none 0s;
-    -webkit-transition: none 0s;
-    -o-transition: none 0s;
     transition: none 0s;
 }
 
@@ -174,8 +168,6 @@
 .n2-ss-slider.n2-ss-load-fade {
     position: absolute;
     opacity: 0;
-    -webkit-transition: opacity 0.3s ease-in-out;
-    -moz-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -184,31 +176,15 @@
     position: relative;
 }
 
-.n2-ss-slider .unselectable {
+.n2-ss-slider .n2-unselectable {
     -moz-user-select: -moz-none;
-    -khtml-user-select: none;
     -webkit-user-select: none;
-
-    /*
-      Introduced in IE 10.
-      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-    */
     -ms-user-select: none;
     user-select: none;
 }
 
 .n2-ss-slider.n2notransition * {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-}
-
-.n2-ss-slider .n2noselftransition {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
+    transition: none 0s !important;
 }
 
 .n2-ss-slider .n2-ss-slide {
@@ -263,9 +239,6 @@
     height: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    -ms-box-sizing: content-box;
     box-sizing: content-box;
 }
 
@@ -415,9 +388,6 @@
     -webkit-perspective: 1000px;
     z-index: 12;
     font-size: 16px;
-    -webkit-transition: opacity 0.4s ease;
-    -moz-transition: opacity 0.4s ease;
-    -o-transition: opacity 0.4s ease;
     transition: opacity 0.4s ease;
     opacity: 1;
 }
@@ -539,18 +509,15 @@
 }
 
 .n2-ss-slider .n2-ss-shape-divider-top.n2-ss-flip-horizontal {
-    -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
 
 .n2-ss-slider .n2-ss-shape-divider-bottom {
     bottom: 0;
-    -webkit-transform: scaleY(-1);
     transform: scaleY(-1);
 }
 
 .n2-ss-slider .n2-ss-shape-divider-bottom.n2-ss-flip-horizontal {
-    -webkit-transform: scale(-1);
     transform: scale(-1);
 }
 
@@ -633,8 +600,6 @@
 .n2-ss-slider .n2-input {
     height: auto;
     width: auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
     border: 0;
@@ -736,7 +701,8 @@
     flex: 1 1 auto;
 }
 
-.n2-ss-slider .n2-ss-layer[data-sstype="row"].n2-ss-stretch-layer > .n2-ss-layer-mask {
+.n2-ss-slider .n2-ss-layer[data-sstype="row"].n2-ss-stretch-layer > .n2-ss-layer-mask,
+.n2-ss-slider .n2-ss-layer[data-sstype="row"].n2-ss-stretch-layer > .n2-ss-layer-parallax {
     display: flex;
 }
 
@@ -807,8 +773,11 @@
     justify-content: flex-start;
     box-sizing: border-box;
     position: relative;
-    min-height: 100%;
     height: 40px;
+}
+
+.n2-ss-slider .n2-ss-slider-1 .n2-ss-layer-content {
+    min-height: 100%;
 }
 
 .n2-ss-slider .n2-ss-layer-content .n2-ss-layer-needsize {
@@ -874,7 +843,7 @@
     flex: 0 0 auto;
 }
 
-.n2-ss-slider .n2-ss-section-main-content-calc {
+.n2-ss-slider .n2-ss-section-main-content.n2-ss-section-main-content-calc {
     min-height: 0;
     height: auto;
 }
@@ -970,6 +939,13 @@
     height: 48px;
     margin-left: -24px;
     margin-top: -24px;
+}
+
+.n2-ss-slider .n2-ss-animated-heading-wrapper,
+.n2-ss-slider .n2-ss-animated-heading-wrapper *,
+.n2-ss-slider .n2-ss-highlighted-heading-wrapper,
+.n2-ss-slider .n2-ss-highlighted-heading-wrapper * {
+    text-decoration: none !important;
 }
 
 .n2-clear {

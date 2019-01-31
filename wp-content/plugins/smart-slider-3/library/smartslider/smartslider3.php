@@ -2,9 +2,9 @@
 
 class N2SS3 {
 
-    public static $version = '3.3.11';
+    public static $version = '3.3.13';
 
-    public static $revision = '2911';
+    public static $revision = '3150';
 
     public static $completeVersion;
 

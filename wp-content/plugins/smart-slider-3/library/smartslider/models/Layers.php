@@ -564,6 +564,7 @@ class N2SmartsliderLayersModel extends N2Model {
                 '600' => '600 - ' . n2_('Semi bold'),
                 '700' => '700 - ' . n2_('Bold'),
                 '800' => '800 - ' . n2_('Extra bold'),
+                '900' => '900'
             )
         ));
 

@@ -13,6 +13,7 @@ N2D('SmartSliderBackgrounds', function ($, undefined) {
         //this.load = $.Deferred();
 
         this.slider = slider;
+        this.hasFixed = false;
 
         this.lazyLoad = slider.parameters.lazyLoad;
         this.lazyLoadNeighbor = slider.parameters.lazyLoadNeighbor;
@@ -717,7 +718,17 @@ N2D('SmartSliderAbstract', function ($, undefined) {
             particlejs: 0
         }, parameters);
 
-        this.disableLayerAnimations = false;
+        this.disabled = {
+            layerAnimations: false,
+            layerSplitTextAnimations: false,
+            backgroundAnimations: false,
+            postBackgroundAnimations: false
+        };
+
+        if (n2const.isSamsungBrowser) {
+            this.disabled.layerSplitTextAnimations = true;
+            this.disabled.postBackgroundAnimations = true;
+        }
 
         if (!this.isAdmin) {
             if (!parameters.responsive.desktop || !parameters.responsive.tablet || !parameters.responsive.mobile) {
@@ -831,6 +842,10 @@ N2D('SmartSliderAbstract', function ($, undefined) {
 
         for (var j = 0; j < this.parameters.initCallbacks.length; j++) {
             (new Function('$', this.parameters.initCallbacks[j])).call(this, $);
+        }
+
+        if (this.disableLayerAnimations === true) {
+            this.disabled.layerAnimations = true;
         }
 
         this.widgets = new N2Classes.SmartSliderWidgets(this);
@@ -3369,6 +3384,8 @@ N2D('FrontendComponent', function ($, undefined) {
         this.parent = parent;
         this.$layer = $layer.data('layer', this);
 
+        this.skipSelfAnimation = false;
+
         var $mask = this.$layer.find('> .n2-ss-layer-mask');
         if ($mask.length) {
             this.wraps.mask = $mask;
@@ -3722,6 +3739,8 @@ N2D('FrontendComponentSlideAbstract', ['FrontendComponent'], function ($, undefi
 
             N2Classes.FrontendComponent.prototype.constructor.call(this, this, this, $el, $el.find('> .n2-ss-layer, > .n2-ss-layer-group'));
 
+            this.skipSelfAnimation = true;
+
             this.slider.sliderElement.on({
                 SliderDeviceOrientation: $.proxy(function (e, modes) {
                     this.onDeviceChange(modes.device + modes.orientation.toLowerCase());
@@ -3990,16 +4009,10 @@ N2D('SmartSliderSlideBackgroundImage', function ($, undefined) {
 });
 N2D('FrontendPlacementAbsolute', ['FrontendPlacement'], function ($, undefined) {
 
-    if (/(MSIE\ [0-7]\.\d+)/.test(navigator.userAgent)) {
-        function getPos($element) {
-            return $element.position();
-        }
-    } else {
-        function getPos($element) {
-            return {
-                left: $element.prop('offsetLeft'),
-                top: $element.prop('offsetTop')
-            }
+    function getPos($element) {
+        return {
+            left: $element.prop('offsetLeft'),
+            top: $element.prop('offsetTop')
         }
     }
 
@@ -4898,6 +4911,12 @@ N2D('SmartSliderResponsive', function ($, undefined) {
         }
 
         this.onResize();
+
+        $(window).on('SliderContentResize', $.proxy(function (e) {
+            this.invalidateResponsiveState = true;
+            this.onResize(e);
+        }, this));
+
         if (this.parameters.onResizeEnabled || this.parameters.type == 'adaptive') {
             $(window).on({
                 resize: $.proxy(this.onResize, this),
@@ -5164,6 +5183,13 @@ N2D('SmartSliderResponsive', function ($, undefined) {
                 this.sliderElement.removeClass('n2notransition');
                 this.disableTransitions = false;
             }, this), 500);
+        }
+
+        if (!this.containerElementPadding.is(':visible')) {
+            /**
+             * The slider is not visible, so there is nothing to resize.
+             */
+            return false;
         }
 
         // required to force recalculate if the thumbnails widget get hidden.
@@ -6281,6 +6307,17 @@ N2D('FrontendItemYouTube', function ($, undefined) {
         FrontendItemYouTube.YTDeferred.done(callback);
     };
 
+    FrontendItemYouTube.prototype.fadeOutCover = function () {
+        if (this.coverFadedOut === undefined && this.$cover.length) {
+            this.coverFadedOut = true;
+            NextendTween.to(this.$cover, 0.3, {
+                opacity: 0,
+                onComplete: $.proxy(function () {
+                    this.$cover.remove();
+                }, this)
+            });
+        }
+    };
 
     FrontendItemYouTube.prototype.initYoutubePlayer = function () {
         var layer = this.$playerElement.closest(".n2-ss-layer");
@@ -6289,14 +6326,7 @@ N2D('FrontendItemYouTube', function ($, undefined) {
             if (n2const.isMobile) {
                 this.$cover.css('pointer-events', 'none');
             }
-            layer.one('n2play', $.proxy(function () {
-                NextendTween.to(this.$cover, 0.3, {
-                    opacity: 0,
-                    onComplete: $.proxy(function () {
-                        this.$cover.remove();
-                    }, this)
-                });
-            }, this));
+            layer.one('n2play', $.proxy(this.fadeOutCover, this));
         }
 
         this.isStatic = this.$playerElement.closest('.n2-ss-static-slide').length;
@@ -6305,8 +6335,9 @@ N2D('FrontendItemYouTube', function ($, undefined) {
             enablejsapi: 1,
             origin: window.location.protocol + "//" + window.location.host,
             wmode: "opaque",
-            rel: this.parameters.related,
+            rel: 1 - this.parameters.related,
             start: this.parameters.start,
+            end: this.parameters.end,
             modestbranding: this.parameters.modestbranding,
             playsinline: this.parameters.playsinline
         };
@@ -6516,6 +6547,9 @@ N2D('FrontendItemYouTube', function ($, undefined) {
 
     FrontendItemYouTube.prototype.play = function () {
         if (this.isStopped()) {
+            if (this.coverFadedOut === undefined) {
+                setTimeout($.proxy(this.fadeOutCover, this), 200);
+            }
             this.slider.sliderElement.trigger('mediaStarted', this.playerId);
             this.player.playVideo();
         }

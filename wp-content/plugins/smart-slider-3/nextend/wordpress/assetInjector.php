@@ -46,6 +46,14 @@ class N2WordpressAssetInjector {
                 ob_start("N2WordpressAssetInjector::output_callback");
             }, 0);
         }
+
+        /**
+         * Fix for Hyper Cache
+         * @url https://wordpress.org/plugins/hyper-cache/
+         */
+        if (function_exists('hyper_cache_callback')) {
+            add_filter('cache_buffer', 'N2WordpressAssetInjector::platformRenderEnd');
+        }
     }
 
     public static function outputStart() {

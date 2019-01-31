@@ -99,6 +99,11 @@ class N2SSPluginItemFactoryYouTube extends N2SSPluginItemFactoryAbstract {
             'unit' => 'sec',
             'wide' => 5
         ));
+        new N2ElementNumber($misc, 'end', n2_('End time'), 0, array(
+            'min'  => 0,
+            'unit' => 'sec',
+            'wide' => 5
+        ));
         new N2ElementList($misc, 'volume', n2_('Volume'), 1, array(
             'options' => array(
                 '0'    => n2_('Mute'),

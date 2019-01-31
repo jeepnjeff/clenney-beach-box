@@ -321,10 +321,12 @@ class N2GeneratorPostsPosts extends N2GeneratorAbstract {
                     }
                 }
             }
-            $record['author_name'] = $record['author'] = get_the_author();
-            $record['author_url']  = get_the_author_meta('url');
-            $record['date']        = get_the_date();
-            $record['modified']    = get_the_modified_date();
+            $record['author_name']   = $record['author'] = get_the_author();
+            $record['author_url']    = get_the_author_meta('url');
+            $userID                  = get_the_author_meta('ID');
+            $record['author_avatar'] = get_avatar_url($userID);
+            $record['date']          = get_the_date();
+            $record['modified']      = get_the_modified_date();
 
             $category = get_the_category($post->ID);
             if (isset($category[0])) {
@@ -373,7 +375,7 @@ class N2GeneratorPostsPosts extends N2GeneratorAbstract {
 
             if (class_exists('acf')) {
                 $fields = get_fields($post->ID);
-                if (count($fields) && is_array($fields) && !empty($fields)) {
+                if (is_array($fields) && !empty($fields) && count($fields)) {
                     foreach ($fields AS $k => $v) {
                         $type = $this->getACFType($k, $post->ID);
                         $k    = str_replace('-', '', $k);

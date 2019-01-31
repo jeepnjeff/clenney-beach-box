@@ -1156,10 +1156,7 @@ iframe {
 }
 
 .n2 a {
-    -moz-transition: none;
-    -webkit-transition: none;
-    -o-transition: color 0s ease-in;
-    transition: none;
+    transition: none 0s;
     outline: 0;
 }
 
@@ -1337,68 +1334,42 @@ html[dir="rtl"] .n2-right {
 }
 
 .n2-border-radius {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
 }
 
 .n2-border-radius-tr {
-    -webkit-border-top-right-radius: 3px;
-    -moz-border-radius-topright: 3px;
     border-top-right-radius: 3px;
 }
 
 html[dir="rtl"] .n2-border-radius-tr {
-    -webkit-border-top-right-radius: 0;
-    -moz-border-radius-topright: 0;
     border-top-right-radius: 0;
-    -webkit-border-top-left-radius: 3px;
-    -moz-border-radius-topleft: 3px;
     border-top-left-radius: 3px;
 }
 
 .n2-border-radius-tl {
-    -webkit-border-top-left-radius: 3px;
-    -moz-border-radius-topleft: 3px;
     border-top-left-radius: 3px;
 }
 
 html[dir="rtl"] .n2-border-radius-tl {
-    -webkit-border-top-right-radius: 3px;
-    -moz-border-radius-topright: 3px;
     border-top-right-radius: 3px;
-    -webkit-border-top-left-radius: 0;
-    -moz-border-radius-topleft: 0;
     border-top-left-radius: 0;
 }
 
 .n2-border-radius-br {
-    -webkit-border-bottom-right-radius: 3px;
-    -moz-border-radius-bottomright: 3px;
     border-bottom-right-radius: 3px;
 }
 
 html[dir="rtl"] .n2-border-radius-br {
-    -webkit-border-bottom-right-radius: 0;
-    -moz-border-radius-bottomright: 0;
     border-bottom-right-radius: 0;
-    -webkit-border-bottom-left-radius: 3px;
-    -moz-border-radius-bottomleft: 3px;
     border-bottom-left-radius: 3px;
 }
 
 .n2-border-radius-bl {
-    -webkit-border-bottom-left-radius: 3px;
-    -moz-border-radius-bottomleft: 3px;
     border-bottom-left-radius: 3px;
 }
 
 html[dir="rtl"] .n2-border-radius-bl {
-    -webkit-border-bottom-right-radius: 3px;
-    -moz-border-radius-bottomright: 3px;
     border-bottom-right-radius: 3px;
-    -webkit-border-bottom-left-radius: 0;
-    -moz-border-radius-bottomleft: 0;
     border-bottom-left-radius: 0;
 }
 
@@ -1653,8 +1624,6 @@ html[dir="rtl"] .n2-header-breadcrumbs > span {
 
 .n2-sidebar-hidden .n2-content-area {
     border-width: 0 1px 1px 1px;
-    -webkit-border-bottom-left-radius: 3px;
-    -moz-border-radius-bottomleft: 3px;
     border-bottom-left-radius: 3px;
 }
 
@@ -1889,20 +1858,12 @@ html[dir="rtl"] .n2-heading-menu {
 }
 
 .n2-panel-option.n2-first a {
-    -webkit-border-top-left-radius: 3px;
-    -webkit-border-bottom-left-radius: 3px;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-bottomleft: 3px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
 
 .n2-panel-option.n2-last a {
     border-right: 0;
-    -webkit-border-top-right-radius: 3px;
-    -webkit-border-bottom-right-radius: 3px;
-    -moz-border-radius-topright: 3px;
-    -moz-border-radius-bottomright: 3px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
@@ -2209,8 +2170,6 @@ html[dir="rtl"] .n2-heading-menu {
     padding: 20px;
     z-index: 100002;
 
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box; /* Firefox, other Gecko */
     box-sizing: border-box; /* Opera/IE 8+ */
 }
 
@@ -2684,8 +2643,6 @@ html[dir="rtl"] .n2-manage-set {
     background: #ffffff;
     margin: 20px 20px 0 20px;
     border: 1px solid #ccd1d6;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
 }
 
@@ -2836,7 +2793,7 @@ html[dir="rtl"] .n2-label {
     padding: 0;
     width: auto;
     box-shadow: none;
-    transition: none;
+    transition: none 0s;
     font-family: "Montserrat", Arial, sans-serif;
 }
 
@@ -3331,17 +3288,11 @@ NextendOnOff
     width: 44px;
     height: 24px;
     margin: 2px 10px;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
 
     -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .n2-form .n2-form-element-onoff {
@@ -3359,7 +3310,6 @@ NextendOnOff
     width: 88px;
     height: 18px;
     padding: 0 2px;
-    -webkit-transition: left 0.25s;
     transition: left 0.25s;
 }
 
@@ -3372,7 +3322,6 @@ NextendOnOff
 }
 
 html[dir="rtl"] .n2-form-element-onoff .n2-onoff-slider {
-    -webkit-transition: right 0.25s;
     transition: right 0.25s;
     left: auto;
     right: -18px;
@@ -3403,8 +3352,6 @@ html[dir="rtl"] .n2-form-element-onoff.n2-onoff-on .n2-onoff-slider {
     width: 18px;
     height: 18px;
     background-color: #ffffff;
-    -webkit-border-radius: 9px;
-    -moz-border-radius: 9px;
     border-radius: 9px;
     box-shadow: 0 0 0 1px RGBA(0, 0, 0, 0.1);
 }
@@ -3459,7 +3406,6 @@ html[dir="rtl"] .n2-form-element-onoff.n2-onoff-on .n2-onoff-slider {
     width: 10px;
     height: 10px;
     background: #fff;
-    -webkit-transition: left 0.25s;
     transition: left 0.25s;
 }
 
@@ -3506,19 +3452,11 @@ NextendSwitcher
 }
 
 .n2-form-element-switcher .n2-switcher-unit.n2-first {
-    -webkit-border-top-left-radius: 3px;
-    -webkit-border-bottom-left-radius: 3px;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-bottomleft: 3px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
 
 .n2-form-element-switcher .n2-switcher-unit.n2-last {
-    -webkit-border-top-right-radius: 3px;
-    -webkit-border-bottom-right-radius: 3px;
-    -moz-border-radius-topright: 3px;
-    -moz-border-radius-bottomright: 3px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-right: 0;
@@ -3613,11 +3551,8 @@ NextendRadio
     width: 14px;
     height: 14px;
     border: 2px solid #bcc6cb;
-    -webkit-border-radius: 14px;
-    -moz-border-radius: 14px;
     border-radius: 14px;
     margin-right: 5px;
-    -webkit-transition: border-color 0.25s, background-color 0.25s;
     transition: border-color 0.25s, background-color 0.25s;
     background-color: #ffffff;
     font-size: 12px;
@@ -3638,7 +3573,6 @@ html[dir="rtl"] .n2-form-element-radio .n2-radio-option-marker {
 }
 
 .n2-form-element-radio .n2-radio-option-marker .n2-i {
-    -webkit-transition: opacity 0.25s;
     transition: opacity 0.25s;
     opacity: 0;
 }
@@ -3670,8 +3604,6 @@ html[dir="rtl"] .n2-form-element-radio .n2-radio-option-marker {
     border: 4px solid #b8c2cd;
     padding: 4px;
 
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
     vertical-align: middle;
 }
@@ -3770,20 +3702,12 @@ NextendRadioTab
 
 .n2-form-element-radio-tab .n2-radio-option-label.n2-first,
 .n2-form-element-radio-tab .n2-radio-option.n2-first {
-    -webkit-border-top-left-radius: 3px;
-    -webkit-border-bottom-left-radius: 3px;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-bottomleft: 3px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 }
 
 .n2-form-element-radio-tab .n2-radio-option-label.n2-last,
 .n2-form-element-radio-tab .n2-radio-option.n2-last {
-    -webkit-border-top-right-radius: 3px;
-    -webkit-border-bottom-right-radius: 3px;
-    -moz-border-radius-topright: 3px;
-    -moz-border-radius-bottomright: 3px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
 }
@@ -3807,12 +3731,8 @@ NextendList
     border: 2px solid #b9c3c9;
     background: transparent;
 
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
 
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
     box-sizing: content-box;
 }
 
@@ -3871,8 +3791,6 @@ NextendCheckbox
     background: #8e9ea7;
     cursor: pointer;
     line-height: 28px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
 }
 
@@ -4318,6 +4236,12 @@ NextendCheckbox
     color: #9aa7b2;
 }
 
+.n2-element-important {
+    background: #212d3a;
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 10px;
+}
 .n2-notification-center-modal {
     background-color: RGBA(43, 52, 63, 0.9);
     width: 100%;
@@ -4490,7 +4414,6 @@ html[dir="rtl"] .n2-notification-center {
     margin-top: -20px;
     border: 10px solid rgba(255, 255, 255, 0.2);
     border-left-color: #ffffff;
-    -webkit-animation: n2-load 1.1s infinite linear;
     animation: n2-load 1.1s infinite linear;
     overflow: hidden;
 }
@@ -4502,24 +4425,11 @@ html[dir="rtl"] .n2-notification-center {
     height: 40px;
 }
 
-@-webkit-keyframes n2-load {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
 @keyframes n2-load {
     0% {
-        -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100% {
-        -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }
@@ -4624,21 +4534,15 @@ License: MIT
 }
 
 .n2-sp-alpha-inner {
-    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right top, color-stop(25%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(left, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 100%); /* IE10+ */
     background: linear-gradient(to right, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=1); /* IE6-9 */
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, .2) inset;
 }
 
 /* Don't allow text selection */
 .n2-sp-container, .n2-sp-replacer, .n2-sp-preview, .n2-sp-dragger, .n2-sp-slider, .n2-sp-alpha, .n2-sp-alpha-handle, .n2-sp-container.n2-sp-dragging .n2-sp-input, .n2-sp-container button {
-    -webkit-user-select: none;
     -moz-user-select: -moz-none;
-    -o-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
@@ -4664,33 +4568,15 @@ License: MIT
 
 /* Gradients for hue, saturation and value instead of images.  Not pretty... but it works */
 .n2-sp-sat {
-    background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#FFF), to(rgba(204, 154, 129, 0)));
-    background-image: -webkit-linear-gradient(left, #FFF, rgba(204, 154, 129, 0));
-    background-image: -moz-linear-gradient(left, #fff, rgba(204, 154, 129, 0));
-    background-image: -o-linear-gradient(left, #fff, rgba(204, 154, 129, 0));
-    background-image: -ms-linear-gradient(left, #fff, rgba(204, 154, 129, 0));
     background-image: linear-gradient(to right, #fff, rgba(204, 154, 129, 0));
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType = 1, startColorstr=#FFFFFFFF, endColorstr=#00CC9A81)";
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr='#FFFFFFFF', endColorstr='#00CC9A81');
 }
 
 .n2-sp-val {
-    background-image: -webkit-gradient(linear, 0 100%, 0 0, from(#000000), to(rgba(204, 154, 129, 0)));
-    background-image: -webkit-linear-gradient(bottom, #000000, rgba(204, 154, 129, 0));
-    background-image: -moz-linear-gradient(bottom, #000, rgba(204, 154, 129, 0));
-    background-image: -o-linear-gradient(bottom, #000, rgba(204, 154, 129, 0));
-    background-image: -ms-linear-gradient(bottom, #000, rgba(204, 154, 129, 0));
     background-image: linear-gradient(to top, #000, rgba(204, 154, 129, 0));
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#00CC9A81, endColorstr=#FF000000)";
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00CC9A81', endColorstr='#FF000000');
 }
 
 .n2-sp-hue {
-    background: -moz-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
-    background: -ms-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
-    background: -o-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
-    background: -webkit-gradient(linear, left top, left bottom, from(#ff0000), color-stop(0.17, #ffff00), color-stop(0.33, #00ff00), color-stop(0.5, #00ffff), color-stop(0.67, #0000ff), color-stop(0.83, #ff00ff), to(#ff0000));
-    background: -webkit-linear-gradient(top, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
+    background: linear-gradient(to bottom, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%);
 }
 
 /* IE filters do not support multiple color stops.
@@ -4700,32 +4586,26 @@ License: MIT
 
 .n2-sp-1 {
     height: 17%;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#ffff00');
 }
 
 .n2-sp-2 {
     height: 16%;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffff00', endColorstr='#00ff00');
 }
 
 .n2-sp-3 {
     height: 17%;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ff00', endColorstr='#00ffff');
 }
 
 .n2-sp-4 {
     height: 17%;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffff', endColorstr='#0000ff');
 }
 
 .n2-sp-5 {
     height: 16%;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0000ff', endColorstr='#ff00ff');
 }
 
 .n2-sp-6 {
     height: 17%;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff00ff', endColorstr='#ff0000');
 }
 
 /* Clearfix hack */
@@ -4793,9 +4673,6 @@ License: MIT
 
 .n2-sp-container, .n2-sp-container button, .n2-sp-container input, .n2-sp-color, .n2-sp-hue {
     font: normal 12px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -4940,8 +4817,6 @@ License: MIT
     font-size: 7px;
     margin: 13px 0 0 -9px;
     position: relative;
-    -webkit-border-top-left-radius: 3px;
-    -moz-border-radius-topleft: 3px;
     border-top-left-radius: 3px;
     float: left;
     text-align: center;
@@ -4981,11 +4856,6 @@ License: MIT
 /* Buttons: http://hellohappy.org/css3-buttons/ */
 .n2-sp-container button {
     background-color: #eeeeee;
-    background-image: -webkit-linear-gradient(top, #eeeeee, #cccccc);
-    background-image: -moz-linear-gradient(top, #eeeeee, #cccccc);
-    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
-    background-image: -o-linear-gradient(top, #eeeeee, #cccccc);
-    background-image: -ms-linear-gradient(top, #eeeeee, #cccccc);
     background-image: linear-gradient(to bottom, #eeeeee, #cccccc);
     border: 1px solid #ccc;
     border-bottom: 1px solid #bbb;
@@ -5001,11 +4871,6 @@ License: MIT
 
 .n2-sp-container button:hover {
     background-color: #dddddd;
-    background-image: -webkit-linear-gradient(top, #dddddd, #bbbbbb);
-    background-image: -moz-linear-gradient(top, #dddddd, #bbbbbb);
-    background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
-    background-image: -o-linear-gradient(top, #dddddd, #bbbbbb);
-    background-image: -ms-linear-gradient(top, #dddddd, #bbbbbb);
     background-image: linear-gradient(to bottom, #dddddd, #bbbbbb);
     border: 1px solid #bbb;
     border-bottom: 1px solid #999;
@@ -5016,10 +4881,6 @@ License: MIT
 .n2-sp-container button:active {
     border: 1px solid #aaa;
     border-bottom: 1px solid #888;
-    -webkit-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
-    -moz-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
-    -ms-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
-    -o-box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
     box-shadow: inset 0 0 5px 2px #aaaaaa, 0 1px 0 0 #eeeeee;
 }
 
@@ -5086,20 +4947,14 @@ License: MIT
 }
 
 .n2-radius-s {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
 }
 
 .n2-radius-m {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
 }
 
 .n2-radius-l {
-    -webkit-border-radius: 500px;
-    -moz-border-radius: 500px;
     border-radius: 500px;
 }
 
@@ -5125,6 +4980,13 @@ License: MIT
 
 .n2-position-display-active .n2-tooltip {
     display: none;
+}
+
+.n2-unselectable {
+    -moz-user-select: -moz-none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 .n2-button {
     display: inline-block;
@@ -6147,10 +6009,6 @@ html[dir="rtl"] .n2-box-menu .n2-button {
 }
 
 .nextend-tab-tabbed .nextend-tab-tabbed-panes {
-    -webkit-transition: all 400ms ease-in-out;
-    -moz-transition: all 400ms ease-in-out;
-    -ms-transition: all 400ms ease-in-out;
-    -o-transition: all 400ms ease-in-out;
     transition: all 400ms ease-in-out;
 }
 
@@ -6167,7 +6025,6 @@ html[dir="rtl"] .n2-box-menu .n2-button {
     padding-top: 2px;
     position: absolute;
     z-index: 9999;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     display: none;
 }
@@ -6190,10 +6047,8 @@ html[dir="rtl"] .n2-box-menu .n2-button {
 .xdsoft_noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    -o-user-select: none;
     user-select: none;
 }
 
@@ -6211,7 +6066,6 @@ html[dir="rtl"] .n2-box-menu .n2-button {
 }
 
 .xdsoft_datetimepicker * {
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -6295,7 +6149,6 @@ html[dir="rtl"] .n2-box-menu .n2-button {
     display: block;
     height: 30px;
     opacity: 0.5;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
     outline: medium none currentColor;
     overflow: hidden;
     padding: 0;
@@ -6349,7 +6202,6 @@ html[dir="rtl"] .n2-box-menu .n2-button {
 .xdsoft_datetimepicker .xdsoft_next:hover,
 .xdsoft_datetimepicker .xdsoft_prev:hover {
     opacity: 1;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 
 .xdsoft_datetimepicker .xdsoft_label {
@@ -6474,12 +6326,10 @@ html[dir="rtl"] .n2-box-menu .n2-button {
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_disabled,
 .xdsoft_datetimepicker .xdsoft_time_box > div > div.xdsoft_disabled {
     opacity: 0.5;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_other_month.xdsoft_disabled {
     opacity: 0.2;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
 }
 
 .xdsoft_datetimepicker .xdsoft_calendar td:hover,

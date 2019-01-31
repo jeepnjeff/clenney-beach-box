@@ -322,8 +322,10 @@ class N2SmartsliderSlidersModel extends N2Model {
         $optimize2 = new N2Tab($optimize, 'optimize-images', false);
 
         $optimizeImages = new N2ElementGroup($optimize2, 'optimize-images', n2_('Optimize images'));
+
         new N2ElementOnOff($optimizeImages, 'optimize', n2_('Enable'), 0, array(
             'relatedFields' => array(
+                'slideroptimize-notice',
                 'slideroptimize-quality',
                 'sliderbackground-image-resize',
                 'sliderthumbnail-image-size'
@@ -333,8 +335,18 @@ class N2SmartsliderSlidersModel extends N2Model {
             'min'   => 0,
             'max'   => 100,
             'unit'  => '%',
-            'style' => 'width:40px;'
+            'style' => 'width:40px;',
+            'post'  => 'break'
         ));
+
+        $memoryLimitText = '';
+        if (function_exists('ini_get')) {
+            $memory_limit = ini_get('memory_limit');
+            if (!empty($memory_limit)) {
+                $memoryLimitText = ' ' . sprintf(n2_('Your current memory limit is %s'), $memory_limit);
+            }
+        }
+        new N2ElementImportant($optimizeImages, 'optimize-notice', n2_('Optimize image feature requires high memory limit. If you do not have enough memory you will get a blank page on the frontend.') . $memoryLimitText);
 
         $backgroundImage = new N2ElementGroup($optimize2, 'background-image-resize', n2_('Background image resize'));
         new N2ElementOnOff($backgroundImage, 'optimize-background-image-custom', n2_('Enable'), '0', array(
@@ -417,6 +429,10 @@ class N2SmartsliderSlidersModel extends N2Model {
         ));
         new N2ElementTextarea($developerOptions, 'callbacks', n2_('JavaScript callbacks'), '', array(
             'fieldStyle' => 'width:600px;height:300px;'
+        ));
+
+        new N2ElementText($developerOptions, 'classes', n2_('Slider CSS classes'), '', array(
+            'tip' => 'You can put custom CSS classes to the slider\'s container.'
         ));
         new N2ElementTextarea($developerOptions, 'related-posts', n2_('Post IDs') . ' (' . n2_('one per line') . ')', '', array(
             'fieldStyle' => 'width:600px;height:100px;',

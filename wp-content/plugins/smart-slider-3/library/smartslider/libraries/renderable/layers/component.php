@@ -441,16 +441,16 @@ abstract class  N2SSSlideComponent {
             }
             switch ($gradient) {
                 case 'horizontal':
-                    return 'background:-moz-linear-gradient(left, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';' . 'background:-webkit-linear-gradient(left, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';' . 'background:linear-gradient(to right, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';';
+                    return 'background:linear-gradient(to right, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';';
                     break;
                 case 'vertical':
-                    return 'background:-moz-linear-gradient(top, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';' . 'background:-webkit-linear-gradient(top, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';' . 'background:linear-gradient(to bottom, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';';
+                    return 'background:linear-gradient(to bottom, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';';
                     break;
                 case 'diagonal1':
-                    return 'background:-moz-linear-gradient(45deg, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';' . 'background:-webkit-linear-gradient(45deg, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';' . 'background:linear-gradient(45deg, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';';
+                    return 'background:linear-gradient(45deg, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';';
                     break;
                 case 'diagonal2':
-                    return 'background:-moz-linear-gradient(-45deg, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';' . 'background:-webkit-linear-gradient(-45deg, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';' . 'background:linear-gradient(135deg, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';';
+                    return 'background:linear-gradient(135deg, ' . N2Color::colorToRGBA($color) . ' 0%,' . N2Color::colorToRGBA($colorend) . ' 100%)' . $after . ';';
                     break;
                 case 'off':
                 default:

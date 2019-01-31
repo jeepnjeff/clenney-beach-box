@@ -63,6 +63,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
+
+
 html {
     line-height: 1.15;
     /* 1 */
@@ -221,6 +223,7 @@ sup {
 
 img {
     border-style: none;
+    /* height: 600px; */
 }
 
 
@@ -993,15 +996,17 @@ a:hover {
     font-size: 1.5em;
     padding: 15px;
     color: #fff;
+    margin-right: -25%;
+
 }
 
 .header-gradient {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#204593+19,477ce5+100&1+1,1+67,0.09+95 */
     background: -moz-linear-gradient(top, rgba(32, 69, 147, 1) 1%, rgba(32, 69, 147, 1) 19%, rgba(55, 102, 196, 1) 67%, rgba(69, 121, 224, 0.09) 95%, rgba(71, 124, 229, 0.09) 100%);
     /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(32, 69, 147, 1) 1%, rgba(32, 69, 147, 1) 19%, rgba(55, 102, 196, 1) 67%, rgba(69, 121, 224, 0.09) 95%, rgba(71, 124, 229, 0.09) 100%);
+    background: -webkit-linear-gradient(top, rgba(32, 69, 147, 1) 1%, rgba(32, 69, 147, .8) 19%, rgba(55, 102, 196, .5) 67%, rgba(69, 121, 224, 0.09) 95%, rgba(71, 124, 229, 0.07) 100%);
     /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(32, 69, 147, 1) 1%, rgba(32, 69, 147, 1) 19%, rgba(55, 102, 196, 1) 67%, rgba(69, 121, 224, 0.09) 95%, rgba(71, 124, 229, 0.09) 100%);
+    background: linear-gradient(to bottom, rgba(32, 69, 147, 1) 1%, rgba(32, 69, 147, 1) 19%, rgba(55, 102, 196, .4) 67%, rgba(69, 121, 224, 0.01) 95%, rgba(71, 124, 229, 0.00) 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#204593', endColorstr='#17477ce5', GradientType=0);
     /* IE6-9 */
@@ -1044,7 +1049,7 @@ a:hover {
     height: auto;
     top: 40%;
     border-radius: 20px;
-    border: 2px solid #0033ff;
+    border: .5px solid #fff;
 }
 
 .carousel-button {
@@ -1107,18 +1112,8 @@ a:hover {
 /*
 			* 💪💪💪 FOOTER 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
 			*/
-.footer-nav {
-    padding-top: 0;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#477ce5+0,204593+81&0.09+5,1+33,1+99 */
-    background: -moz-linear-gradient(top, rgba(71, 124, 229, 0.09) 0%, rgba(69, 121, 224, 0.09) 5%, rgba(55, 102, 196, 1) 33%, rgba(32, 69, 147, 1) 81%, rgba(32, 69, 147, 1) 99%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(71, 124, 229, 0.09) 0%, rgba(69, 121, 224, 0.09) 5%, rgba(55, 102, 196, 1) 33%, rgba(32, 69, 147, 1) 81%, rgba(32, 69, 147, 1) 99%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(71, 124, 229, 0.09) 0%, rgba(69, 121, 224, 0.09) 5%, rgba(55, 102, 196, 1) 33%, rgba(32, 69, 147, 1) 81%, rgba(32, 69, 147, 1) 99%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#17477ce5', endColorstr='#204593', GradientType=0);
-    /* IE6-9 */
-}
+
+
 
 .footer-nav-space {
     padding-top: 4%;
@@ -1143,7 +1138,9 @@ a:hover {
 
 footer {
 
-    height: 85px;
+    height: 120px;
+
+    width: 100%;
 
     background: -moz-linear-gradient(top, rgba(71, 124, 229, 0.09) 0%, rgba(69, 121, 224, 0.09) 5%, rgba(55, 102, 196, 1) 33%, rgba(32, 69, 147, 1) 81%, rgba(32, 69, 147, 1) 99%);
     /* FF3.6-15 */
@@ -1155,12 +1152,13 @@ footer {
     /* IE6-9 */
 }
 
+
 /*
 			 * 💪💪💪💪💪💪💪💪💪💪💪💪💪 END FOOTER 💪💪💪💪💪
 			 */
 /* Modal */
 .modal-form {
-    background-color: #ffd2af;
+    background-color: rgba(190, 71, 0, 1);
 }
 
 .cal-width {
@@ -1215,9 +1213,6 @@ footer {
 
 /* ABOUT SECTION */
 
-#about: {}
-
-
 .about-header {
     text-align: center;
     padding: 15px;
@@ -1256,10 +1251,7 @@ footer {
     z-index: 1;
 }
 
-.amen-backdrop {
-    background: url('assets/images/beachsand.jpg') no-repeat;
-    background-size: cover;
-}
+
 
 .amen-title {
     font-size: 4em;
@@ -1317,7 +1309,7 @@ footer {
 
 .amen-items {
     padding-left: 33%;
-    font-size: 1.2em;
+    font-size: 1.5em;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
     font-weight: 600;
@@ -1329,11 +1321,11 @@ footer {
     background: url('assets/images/bluemat.jpeg') no-repeat;
     background-size: cover;
     color: #fff;
-    margin-top: 7.5%;
+    margin-top: 13.5%;
 }
 
 .bottom-hr {
-    border-top: 2px solid #be4700;
+    border-top: 4px solid #be4700;
     width: 100%;
     margin-bottom: 3%;
     margin-top: 3%;
@@ -1342,6 +1334,64 @@ footer {
 
 
 /* End of Aminities Section */
+
+/* Photo Gallery */
+
+.gallery-header-title {
+    margin-top: 9%;
+    margin-bottom: 3%;
+
+}
+
+.galler-header-title-box {
+    font-size: .9em;
+    background: rgba(190, 71, 0, .8);
+    width: 23%;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    color: #0033ff;
+    text-shadow: .5px .5px .5px #000;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+}
+
+
+.gallery-header-box {
+    margin-top: 0%;
+    text-align: center;
+    font-size: 4.5em;
+    background: url('assets/images/Morro-Bay-Rock-header.png') no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 385px;
+    position: fixed;
+    z-index: 2;
+}
+
+.gallery-body {
+    background: url('assets/images/bluemat.jpeg') no-repeat;
+    background-size: cover;
+    margin-top: 15%;
+    padding-top: 40px;
+
+    margin-bottom: 0px;
+    padding-bottom: 3%;
+}
+
+.gallery-section {
+    margin-top: 1%;
+}
+
+
+
+
+
+/* End of Photo Gallery */
 
 /*
  * 💪💪💪💪💪💪💪💪💪💪 MEDIA QUERIES 💪💪💪💪💪
@@ -1366,17 +1416,15 @@ footer {
     .header-box {
         height: 60px;
     }
-}
 
-@media screen and (max-width: 300px) {
-    .logo-img {
-        width: auto;
-        height: 35px;
-        margin-top: -6px;
-        margin-left: 0px;
-    }
+    @media screen and (max-width: 300px) {
+        .logo-img {
+            width: auto;
+            height: 35px;
+            margin-top: -6px;
+            margin-left: 0px;
+        }
 
-    .header-box {
-        height: 38px;
-    }
-}
+        .header-box {
+            height: 38px;
+        }

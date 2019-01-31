@@ -5202,7 +5202,7 @@ N2D('SmartSliderAdminSlideBackgroundColor', ['SmartSliderSlideBackgroundColor'],
 
     SmartSliderAdminSlideBackgroundColor.prototype.update = function (color, gradient, colorEnd) {
         color = this.fixColor(color);
-        this.$el.css({background: '', filter: ''});
+        this.$el.css({background: ''});
 
         if (gradient !== 'off') {
             this.updateGradient(color, gradient, colorEnd)
@@ -5220,42 +5220,22 @@ N2D('SmartSliderAdminSlideBackgroundColor', ['SmartSliderSlideBackgroundColor'],
     };
 
     SmartSliderAdminSlideBackgroundColor.prototype.updateGradient = function (color, gradient, colorEnd) {
-        this.$el.css({background: '', filter: ''});
+        this.$el.css({background: ''});
 
         colorEnd = this.fixColor(colorEnd);
 
         switch (gradient) {
             case 'horizontal':
-                this.$el
-                    .css('background', '#' + color.substr(0, 6))
-                    .css('background', '-moz-linear-gradient(left, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', ' -webkit-linear-gradient(left, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', 'linear-gradient(to right, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#' + color.substr(0, 6) + '\', endColorstr=\'#' + colorEnd.substr(0, 6) + '\',GradientType=1)');
+                this.$el.css('background', 'linear-gradient(to right, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)');
                 break;
             case 'vertical':
-                this.$el
-                    .css('background', '#' + color.substr(0, 6))
-                    .css('background', '-moz-linear-gradient(top, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', ' -webkit-linear-gradient(top, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', 'linear-gradient(to bottom, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#' + color.substr(0, 6) + '\', endColorstr=\'#' + colorEnd.substr(0, 6) + '\',GradientType=0)');
+                this.$el.css('background', 'linear-gradient(to bottom, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)');
                 break;
             case 'diagonal1':
-                this.$el
-                    .css('background', '#' + color.substr(0, 6))
-                    .css('background', '-moz-linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', ' -webkit-linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', 'linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#' + color.substr(0, 6) + '\', endColorstr=\'#' + colorEnd.substr(0, 6) + '\',GradientType=1)');
+                this.$el.css('background', 'linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)');
                 break;
             case 'diagonal2':
-                this.$el
-                    .css('background', '#' + color.substr(0, 6))
-                    .css('background', '-moz-linear-gradient(-45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', ' -webkit-linear-gradient(-45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', 'linear-gradient(135deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)')
-                    .css('background', 'filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#' + color.substr(0, 6) + '\', endColorstr=\'#' + colorEnd.substr(0, 6) + '\',GradientType=1)');
+                this.$el.css('background', 'linear-gradient(135deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorEnd) + ' 100%)');
                 break;
         }
     };
@@ -5568,7 +5548,8 @@ N2D('LayerContainer', function ($, undefined) {
 
     LayerContainer.prototype.insertLayerAt = function (layer, index) {
 
-        var layers = this.getSortedLayers();
+        var layers = this.getSortedLayers(),
+            oldGroup = layer.group;
 
         var layerIndex = $.inArray(layer, layers);
         if (layerIndex > -1 && layerIndex < index) {
@@ -5583,6 +5564,10 @@ N2D('LayerContainer', function ($, undefined) {
         }
 
         this.syncLayerRow(layer);
+
+        if (oldGroup !== this.component) {
+            oldGroup.onChildCountChange();
+        }
     };
 
     LayerContainer.prototype.syncLayerRow = function (layer) {
@@ -7921,8 +7906,8 @@ N2D('Ruler', function ($, undefined) {
 
         this.scale = 10;
 
-        this.vertical = $('<div class="n2-ruler n2-ruler-vertical unselectable"></div>').appendTo('.n2-ss-slider-real-container');
-        this.horizontal = $('<div class="n2-ruler n2-ruler-horizontal unselectable"></div>').appendTo(this.container);
+        this.vertical = $('<div class="n2-ruler n2-ruler-vertical n2-unselectable"></div>').appendTo('.n2-ss-slider-real-container');
+        this.horizontal = $('<div class="n2-ruler n2-ruler-horizontal n2-unselectable"></div>').appendTo(this.container);
 
         this.verticalSpans = $();
         this.horizontalSpans = $();
@@ -11429,6 +11414,7 @@ N2D('ComponentAbstract', dependencies, function ($, undefined) {
         this.$ = $(this);
 
         this.proxyRefreshBaseSize = $.proxy(this.refreshBaseSize, this);
+        this.proxyRefreshTextAlign = $.proxy(this.refreshTextAlign, this);
 
         this.status = ComponentAbstract.STATUS.UNDEFINED;
 
@@ -11658,6 +11644,7 @@ N2D('ComponentAbstract', dependencies, function ($, undefined) {
 
     ComponentAbstract.prototype.setGroup = function (group) {
         this.group.$.off('baseSizeUpdated.sslayer' + this.counter);
+        this.group.$.off('textAlignUpdated.sslayer' + this.counter);
 
         this.group = group;
         this.placement.setMode(group.container.allowedPlacementMode);
@@ -11667,11 +11654,13 @@ N2D('ComponentAbstract', dependencies, function ($, undefined) {
             this.refreshBaseSize();
         }
         this.group.$.on('baseSizeUpdated.sslayer' + this.counter, this.proxyRefreshBaseSize);
+        this.group.$.on('textAlignUpdated.sslayer' + this.counter, this.proxyRefreshTextAlign);
     };
 
     ComponentAbstract.prototype.changeGroup = function (originalIndex, newGroup) {
         var originalGroup = this.group;
         originalGroup.$.off('baseSizeUpdated.sslayer' + this.counter);
+        originalGroup.$.off('textAlignUpdated.sslayer' + this.counter);
 
         this.group = newGroup;
         var originalPlacementData = this.placement.setMode(newGroup.container.allowedPlacementMode);
@@ -11679,6 +11668,7 @@ N2D('ComponentAbstract', dependencies, function ($, undefined) {
 
         this.refreshBaseSize();
         newGroup.$.on('baseSizeUpdated.sslayer' + this.counter, this.proxyRefreshBaseSize);
+        newGroup.$.on('textAlignUpdated.sslayer' + this.counter, this.proxyRefreshTextAlign);
 
         this.userGroupChange(originalGroup, originalIndex, originalPlacementData, newGroup, this.getIndex());
 
@@ -11711,6 +11701,7 @@ N2D('ComponentAbstract', dependencies, function ($, undefined) {
         group.container.insertLayerAt(this, index);
 
         this.group.$.off('baseSizeUpdated.sslayer' + this.counter);
+        this.group.$.off('refreshTextAlign.sslayer' + this.counter);
 
         this.group = group;
         if (data.placementData) {
@@ -11721,6 +11712,7 @@ N2D('ComponentAbstract', dependencies, function ($, undefined) {
 
         this.refreshBaseSize();
         this.group.$.on('baseSizeUpdated.sslayer' + this.counter, this.proxyRefreshBaseSize);
+        this.group.$.on('refreshTextAlign.sslayer' + this.counter, this.proxyRefreshBaseSize);
 
 
         group.onChildCountChange();
@@ -12000,6 +11992,7 @@ N2D('ComponentAbstract', dependencies, function ($, undefined) {
 
 
         this.group.$.off('baseSizeUpdated.sslayer' + this.counter);
+        this.group.$.off('refreshTextAlign.sslayer' + this.counter);
         this.$.trigger('layerDeleted');
 
         if (this.markTimer) {
@@ -12248,6 +12241,11 @@ N2D('ComponentAbstract', dependencies, function ($, undefined) {
         }
         this.$.triggerHandler('baseSizeUpdated');
     };
+
+    ComponentAbstract.prototype.refreshTextAlign = function () {
+
+        this.$.triggerHandler('textAlignUpdated');
+    }
 
     ComponentAbstract.prototype.getFontSize = function () {
         return parseInt(this.getProperty('fontsize'));
@@ -12979,6 +12977,8 @@ N2D('ContentAbstract', ['LayerContainer', 'ComponentAbstract'], function ($, und
 
     ContentAbstract.prototype._syncinneralign = function () {
         this.layer.attr('data-csstextalign', this.getInnerAlign());
+
+        this.refreshTextAlign();
     };
 
     ContentAbstract.prototype.getVerticalAlign = function () {
@@ -13067,21 +13067,13 @@ N2D('ContentAbstract', ['LayerContainer', 'ComponentAbstract'], function ($, und
             }
             switch (gradient) {
                 case 'horizontal':
-                    return 'background:-moz-linear-gradient(left, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:-webkit-linear-gradient(left, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:linear-gradient(to right, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
+                    return 'background:linear-gradient(to right, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
                 case 'vertical':
-                    return 'background:-moz-linear-gradient(top, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:-webkit-linear-gradient(top, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:linear-gradient(to bottom, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
+                    return 'background:linear-gradient(to bottom, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
                 case 'diagonal1':
-                    return 'background:-moz-linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:-webkit-linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
+                    return 'background:linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
                 case 'diagonal2':
-                    return 'background:-moz-linear-gradient(-45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:-webkit-linear-gradient(-45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:linear-gradient(135deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
+                    return 'background:linear-gradient(135deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
                 case 'off':
                 default:
                     if (backgroundImage != '') {
@@ -14421,6 +14413,15 @@ N2D('Row', ['LayerContainer', 'ComponentAbstract'], function ($, undefined) {
         N2Classes.PluginActivatable.prototype.activate.apply(this, arguments);
 
         this.columnsField.setRow(this);
+
+        this.$row.nUIColumns('option', 'active', 1);
+    };
+
+    Row.prototype.deActivate = function () {
+
+        this.$row.nUIColumns('option', 'active', 0);
+
+        N2Classes.PluginActivatable.prototype.deActivate.apply(this, arguments);
     };
 
     Row.prototype.switchOpened = function (e) {
@@ -14601,6 +14602,8 @@ N2D('Row', ['LayerContainer', 'ComponentAbstract'], function ($, undefined) {
 
     Row.prototype._syncinneralign = function () {
         this.layer.attr('data-csstextalign', this.getInnerAlign());
+
+        this.refreshTextAlign();
     };
 
     Row.prototype._syncfullwidth = function () {
@@ -14726,21 +14729,13 @@ N2D('Row', ['LayerContainer', 'ComponentAbstract'], function ($, undefined) {
             }
             switch (gradient) {
                 case 'horizontal':
-                    return 'background:-moz-linear-gradient(left, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:-webkit-linear-gradient(left, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:linear-gradient(to right, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
+                    return 'background:linear-gradient(to right, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
                 case 'vertical':
-                    return 'background:-moz-linear-gradient(top, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:-webkit-linear-gradient(top, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:linear-gradient(to bottom, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
+                    return 'background:linear-gradient(to bottom, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
                 case 'diagonal1':
-                    return 'background:-moz-linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:-webkit-linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
+                    return 'background:linear-gradient(45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
                 case 'diagonal2':
-                    return 'background:-moz-linear-gradient(-45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:-webkit-linear-gradient(-45deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';'
-                        + 'background:linear-gradient(135deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
+                    return 'background:linear-gradient(135deg, ' + N2Color.hex2rgbaCSS(color) + ' 0%,' + N2Color.hex2rgbaCSS(colorend) + ' 100%)' + after + ';';
                 case 'off':
                 default:
                     if (backgroundImage != '') {
@@ -16196,6 +16191,10 @@ N2D('nUIColumns', ['nUIMouse'], function ($, undefined) {
      * @this nUIColumns
      */
     function nUIColumns(element, options) {
+        this.active = 0;
+        this.created = false;
+        this.invalidated = false;
+
         this.element = $(element);
 
         this.widgetName = this.widgetName || 'nUIColumns';
@@ -16219,20 +16218,21 @@ N2D('nUIColumns', ['nUIMouse'], function ($, undefined) {
         }, this.options, options);
 
         N2Classes.nUIMouse.prototype.constructor.apply(this, arguments);
-
-        this.create();
     }
 
     nUIColumns.prototype = Object.create(N2Classes.nUIMouse.prototype);
     nUIColumns.prototype.constructor = nUIColumns;
 
     nUIColumns.prototype.create = function () {
+        if (!this.created) {
+            this.created = true;
 
-        this._setupHandles();
+            this._setupHandles();
 
-        $(window).on('resize', $.proxy(this._resize, this));
+            $(window).on('resize', $.proxy(this._resize, this));
 
-        this._mouseInit();
+            this._mouseInit();
+        }
     };
 
     nUIColumns.prototype._destroy = function () {
@@ -16279,29 +16279,27 @@ N2D('nUIColumns', ['nUIMouse'], function ($, undefined) {
 
         this.handles = this.element.find('> .ui-column-width-handle');
 
-        this.handles.css({
-            '-ms-user-select': 'none',
-            '-moz-user-select': '-moz-none',
-            '-khtml-user-select': 'none',
-            '-webkit-user-select': 'none',
-            'user-select': 'none'
-        });
+        this.handles.addClass('n2-unselectable');
 
         this._resize();
     };
 
     nUIColumns.prototype._resize = function () {
-        this.paddingLeft = parseInt(this.element.css('paddingLeft'));
-        this.paddingRight = parseInt(this.element.css('paddingRight'));
+        if (this.active) {
+            this.paddingLeft = parseInt(this.element.css('paddingLeft'));
+            this.paddingRight = parseInt(this.element.css('paddingRight'));
 
-        var containerWidth = this.element.width();
+            var containerWidth = this.element.width();
 
-        this.outerWidth = containerWidth + this.paddingLeft + this.paddingRight;
-        this.innerWidth = containerWidth - this.handles.length * this.options.gutter;
+            this.outerWidth = containerWidth + this.paddingLeft + this.paddingRight;
+            this.innerWidth = containerWidth - this.handles.length * this.options.gutter;
 
-        for (var i = 0; i < this.handles.length; i++) {
-            var currentPercent = this.handles.eq(i).data('percent');
-            this._updateResizer(i, currentPercent);
+            for (var i = 0; i < this.handles.length; i++) {
+                var currentPercent = this.handles.eq(i).data('percent');
+                this._updateResizer(i, currentPercent);
+            }
+        } else {
+            this.invalidated = true;
         }
     };
 
@@ -16320,12 +16318,24 @@ N2D('nUIColumns', ['nUIMouse'], function ($, undefined) {
         N2Classes.nUIWidgetBase.prototype.setOption.apply(this, arguments);
 
         switch (key) {
+            case "active":
+                this.active = value;
+                if (this.active) {
+                    this.create();
+                    if (this.invalidated) {
+                        this._resize();
+                    }
+                }
+                break;
             case "columns":
-                this._removeHandles();
-                this._setupHandles();
+                if (this.created) {
+                    this._removeHandles();
+                    this._setupHandles();
+                }
                 break;
             case "gutter":
                 this._resize();
+                break;
         }
     };
 

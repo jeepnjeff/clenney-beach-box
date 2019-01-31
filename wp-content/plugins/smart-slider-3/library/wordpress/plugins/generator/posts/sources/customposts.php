@@ -435,7 +435,7 @@ class N2GeneratorPostsCustomPosts extends N2GeneratorAbstract {
 
             if (class_exists('acf')) {
                 $fields = get_fields($post->ID);
-                if (count($fields) && is_array($fields) && !empty($fields)) {
+                if (is_array($fields) && !empty($fields) && count($fields)) {
                     foreach ($fields AS $k => $v) {
                         $type = $this->getACFType($k, $post->ID);
                         $k    = str_replace('-', '', $k);

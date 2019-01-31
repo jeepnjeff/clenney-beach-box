@@ -25,6 +25,10 @@ class N2SS3Shortcode {
             $parameters['slider'] = $parameters['alias'];
         }
 
+        if (isset($parameters['iframe'])) {
+            self::forceIframe($parameters['iframe']);
+        }
+
         if (self::$iframe) {
             if (isset($parameters['slider'])) {
                 return self::renderIframe($parameters['slider']);
@@ -124,6 +128,12 @@ class N2SS3Shortcode {
             }
         }
 
+        if (isset($parameters['lang'])) {
+            if ($parameters['lang'] != N2Localization::getLocale()) {
+                return '';
+            }
+        }
+
         $parameters = shortcode_atts(array(
             'id'     => md5(time()),
             'slider' => 0
@@ -188,6 +198,12 @@ if (defined('DOING_AJAX') && DOING_AJAX) {
         N2SS3Shortcode::shortcodeModeToSkip();
     }
 }
+
+/**
+ * There should not be sliders in the head
+ */
+add_action('wp_head', 'N2SS3Shortcode::shortcodeModeToNoop', -10000);
+add_action('wp_head', 'N2SS3Shortcode::shortcodeModeToNormal', 10000);
 
 add_action('woocommerce_shop_loop', 'N2SS3Shortcode::shortcodeModeToNoop', 9);
 add_action('woocommerce_shop_loop', 'N2SS3Shortcode::shortcodeModeToNormal', 11);

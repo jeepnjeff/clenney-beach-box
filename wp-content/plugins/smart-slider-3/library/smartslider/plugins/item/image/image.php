@@ -48,9 +48,10 @@ class N2SSPluginItemFactoryImage extends N2SSPluginItemFactoryAbstract {
             'image'          => '$system$/images/placeholder/image.png',
             'alt'            => '',
             'title'          => '',
-            'href'           => '',
+            'href'           => '#',
             'href-target'    => '_self',
             'href-rel'       => '',
+            'href-class'     => '',
             'size'           => 'auto|*|auto',
             'style'          => $this->style,
             'cssclass'       => '',
@@ -123,6 +124,9 @@ class N2SSPluginItemFactoryImage extends N2SSPluginItemFactoryAbstract {
         ));
         new N2ElementLinkTarget($link, 'href-target', n2_('Target window'));
         new N2ElementLinkRel($link, 'href-rel', n2_('Rel'));
+        new N2ElementText($link, 'href-class', n2_('CSS Class'), '', array(
+            'style' => 'width:80px;'
+        ));
 
         $seo = new N2ElementGroup($settings, 'item-image-seo');
         new N2ElementText($seo, 'alt', 'SEO - ' . n2_('Alt tag'), '', array(

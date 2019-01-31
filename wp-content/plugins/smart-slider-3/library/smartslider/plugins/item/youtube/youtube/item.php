@@ -40,6 +40,10 @@ class N2SSItemYouTube extends N2SSItemAbstract {
         $this->data->set("youtubecode", $youTubeUrl);
         $this->data->set("start", $start);
 
+        $end = $owner->fill($this->data->get('end', ''));
+        $this->data->set("youtubecode", $youTubeUrl);
+        $this->data->set("end", $end);
+
         $style = '';
 
         $hasImage = 0;

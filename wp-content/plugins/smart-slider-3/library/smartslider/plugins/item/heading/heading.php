@@ -27,7 +27,7 @@ class N2SSPluginItemFactoryHeading extends N2SSPluginItemFactoryAbstract {
             'nowrap'      => 0,
             'heading'     => n2_('Heading layer'),
             'title'       => '',
-            'href'        => '',
+            'href'        => '#',
             'href-target' => '_self',
             'href-rel'    => '',
             'font'        => $this->font,

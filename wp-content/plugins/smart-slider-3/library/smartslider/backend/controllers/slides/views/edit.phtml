@@ -314,7 +314,7 @@ if (!$isAddSample && !N2Base::getApplication('smartslider')->storage->get('tutor
         'description' => n2_('Start building your first slide by watching the video and learn the basic steps of to the Slide editing. Smart Slider 3.2 introduces the new Content Builder mode which is a block-based system where you can add rows, columns and of course layers to the slide.'),
         'buttons'     => array(
             '<a href="https://smartslider3.com/videos/contentmode" class="n2-button n2-button-normal n2-button-green n2-button-l n2-h4 n2-b n2-uc n2-radius-s" target="_blank">' . n2_('Watch now') . '</a>',
-            '<a onclick="N2Classes.AjaxHelper.ajax({url: N2Classes.AjaxHelper.makeAjaxUrl(\'' . $this->appType->router->createAjaxUrl(array('settings/hidecontentmode')) . '\')});N2Classes.$(\'#n2-ss32-content-mode-tutorial\').remove(); return false;" href="#" class="n2-button n2-button-normal n2-button-grey n2-button-l n2-h4 n2-b n2-uc n2-radius-s" target="_blank">' . n2_('Close') . '</a>'
+            '<a onclick="N2Classes.AjaxHelper.ajax({url: N2Classes.AjaxHelper.makeAjaxUrl(\'' . $this->appType->router->createAjaxUrl(array('settings/hidecontentmode')) . '\')});N2Classes.$(\'#n2-ss-tutorial-content-mode\').remove(); return false;" href="#" class="n2-button n2-button-normal n2-button-grey n2-button-l n2-h4 n2-b n2-uc n2-radius-s" target="_blank">' . n2_('Close') . '</a>'
         )
     ));
 }

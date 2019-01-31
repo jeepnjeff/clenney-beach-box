@@ -14,13 +14,6 @@
     z-index: 1100;
 }
 
-.unselectable {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-}
-
 /**
 Layout
 */
@@ -453,6 +446,14 @@ body[data-slides='0'] #n2-ss-edit-slider-form {
 
 .n2-slide-state-published .n2-i-unpublished:before {
     content: "\e60c";
+}
+
+.n2-box-slide.n2-slide-state-published{
+	opacity:1;
+}
+
+.n2-box-slide{
+	opacity:0.5;
 }
 
 .n2-slide-is-first,
@@ -1164,15 +1165,6 @@ body[data-editormode="content"] #n2-admin .n2-ss-responsive-helper {
     display: inline-flex;
     padding: 8px;
     box-sizing: border-box;
-    -webkit-user-select: none;
-    /* Chrome/Safari */
-    -moz-user-select: none;
-    /* Firefox */
-    -ms-user-select: none;
-    /* IE10+ */
-    /* Rules below not implemented in browsers yet */
-    -o-user-select: none;
-    user-select: none;
     overflow: hidden;
 }
 
@@ -1717,8 +1709,6 @@ html[dir=rtl] .n2-ss-small-more {
     cursor: pointer;
     text-align: center;
 
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
 
     width: 90px;
@@ -2343,8 +2333,6 @@ ul > li > ul > li > ul > li > ul > li > ul > li .n2-inline-form {
     line-height: 24px;
     padding: 0 10px;
 
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
 
     margin: 0;
@@ -2454,11 +2442,6 @@ div.n2-ss-layer-status a.n2-ss-sc-hide {
     width: 340px;
     margin: 0 -1px;
     height: 48px;
-    user-select: none;
-    -o-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
     display: none;
     background-color: #28313a;
     z-index: 1019;
@@ -2909,7 +2892,7 @@ div#n2-ss-0 .n2-ss-layer[data-sstype="col"] .n2-ss-layer.nui-draggable-dragging 
 }
 
 .n2-ss-item-html .n2-ss-item-overlay,
-.n2-ss-item-iframe .ui-item-overlay {
+.n2-ss-item-iframe .n2-ss-item-overlay {
     display: block;
 }
 
@@ -3651,8 +3634,6 @@ div div#n2-ss-0 .n2-ss-static-slide div[data-sstype="content"] div.n2-ss-section
     width: 20px;
     z-index: 2;
     border: 0;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
     border-radius: 5px;
 }
 

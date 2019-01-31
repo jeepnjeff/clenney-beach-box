@@ -325,7 +325,7 @@ N2D('NextendFragmentEditorController', ['NextendFragmentEditorControllerWithEdit
             this.previewModeField = new N2Classes.FormElementRadio('n2-' + this.type + '-editor-preview-mode', ['0']);
             this.previewModeField.element.on('nextendChange.n2-editor', $.proxy(this.previewModeChanged, this));
 
-            this.previewModeField.options.eq(0).text(this.previewModesList[0].label);
+            this.previewModeField.options.eq(0).text(n2_('Current tab'));
         }
     }
 
@@ -474,7 +474,7 @@ N2D('NextendFragmentEditorController', ['NextendFragmentEditorControllerWithEdit
             this.previewModeField.removeTabOption(this.previewModeField.values[i]);
         }
         for (var i = 0; i < modes.length; i++) {
-            this.previewModeField.addTabOption(modes[i].id, modes[i].label);
+            this.previewModeField.addTabOption(modes[i].id, n2_('Live'));
         }
         if (typeof defaultMode === 'undefined') {
             defaultMode = '0';
@@ -2176,6 +2176,7 @@ N2D('NextendFontEditorController', ['NextendFragmentEditorController'], function
 
     NextendFontEditorController.prototype._load = function (visual, tabs, parameters) {
         if (visual.length) {
+            visual = this.fixBold(visual);
             visual[0] = $.extend({}, this.getEmptyFont(), visual[0]);
         }
 
@@ -2184,11 +2185,31 @@ N2D('NextendFontEditorController', ['NextendFragmentEditorController'], function
 
     NextendFontEditorController.prototype.asyncVisualData = function (visual, showParameters, cb) {
         if (visual.length) {
+            visual = this.fixBold(visual);
             visual[0] = $.extend({}, this.getEmptyFont(), visual[0]);
         }
 
         N2Classes.NextendFragmentEditorController.prototype.asyncVisualData.call(this, visual, showParameters, cb);
     };
+
+    NextendFontEditorController.prototype.fixBold = function (visual) {
+        for (var i = 0; i < visual.length; i++) {
+            if (visual[i].bold !== undefined) {
+                if (visual[i].weight !== undefined) {
+                    delete visual[i].bold;
+                } else {
+                    if (visual[i].bold == 1) {
+                        visual[i].weight = 700;
+                    } else if (visual[i].bold > 0) {
+                        visual[i].weight = visual[i].bold;
+                    }
+                    delete visual[i].bold;
+                }
+            }
+        }
+
+        return visual;
+    }
 
     NextendFontEditorController.prototype.getEmptyFont = function () {
         return {

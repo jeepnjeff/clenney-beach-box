@@ -69,7 +69,7 @@ class N2SSPluginItemFactoryButton extends N2SSPluginItemFactoryAbstract {
             'content'       => n2_('MORE'),
             'nowrap'        => 1,
             'fullwidth'     => 0,
-            'href'          => '',
+            'href'          => '#',
             'href-target'   => '_self',
             'href-rel'      => '',
             'font'          => $this->font,

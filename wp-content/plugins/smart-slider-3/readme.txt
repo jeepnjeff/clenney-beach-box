@@ -4,7 +4,7 @@ Tags: slider, wordpress slider, image slider, layer slider, responsive slider, s
 Donate link: https://sites.fastspring.com/nextend/product/smartslider3donate
 Requires at least: 4.6
 Tested up to: 5.0
-Stable tag: 3.3.11
+Stable tag: 3.3.13
 Requires PHP: 5.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -195,6 +195,41 @@ Of course! Smart Slider use protocol relative urls which works fine on http:// a
 9. Layer slider with layers styles. Made with FREE version.
 
 == Changelog ==
+
+= 3.3.12 - 23. January 2019. =
+* Feature: Show slide count option for horizontal text bar
+* Feature: New advanced shortcode options
+* Feature: Slider CSS class
+* Feature: Support external images with ? parameters
+* Feature: Font loading improvements
+* Feature: Image layer link CSS class
+* Feature: Slider alias can be used as URL parameter to choose which slide to switch to on page load. (E.g. http://example.com/?alias=2 )
+* Feature: Lower opacity of unpublished slides in slide list
+* Feature: YouTube layer end time parameter
+* Feature: 900 font weight at layer window → Design tab
+* Feature: WordPress Post generator author avatar
+* Fix: Hyper Cache compatibility
+* Fix: Gutenberg Additional CSS class
+* Fix: Brizy page builder compatibility
+* Fix: Updates about making sure our JavaScript codes are only called in once
+* Fix: Divi compatibility
+* Fix: Elementor compatibility and shortcode fix in editor
+* Fix: Joomla generator image fallbacks for external images
+* Fix: PHP 7+ compatibility for post generators when Advanced Custom Fields plugin is also used on the website
+* Fix: Beaver Builder 1.5 compatibility
+* Fix: Stretched row + layer parallax
+* Fix: Remove 4 byte characters from Add Video -> description, title
+* Fix: PHP 7+ compatibility, when slider padding or slide duration was left empty
+* Fix: Gutenberg iframe
+* Fix: Slider align and responsive behavior
+* Fix: Fixed background viewport height fix for Android and iOS
+* Fix: Check http / relative URL difference in text images at generators
+* Fix: YouTube layer "Show related videos from the same channel" fix
+* Fix: Iframe layer in Canvas mode
+* Fix: Text bar vertical align
+* Improvement: Optimize slide background image feature
+* Other: New Google fonts added
+* Deprecated: IE10 or lower compatibility codes removed
 
 = 3.3.11 - 22. November 2018. =
 * Feature: SVG and WEBP image format support

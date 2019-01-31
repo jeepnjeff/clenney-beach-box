@@ -75,6 +75,7 @@ window.n2const = {
         // other browser
         return false;
     })(),
+    isSamsungBrowser: navigator.userAgent.match(/SamsungBrowser/i),
     isBot: /bot|googlebot|crawler|spider|robot|crawling|Google Search Console/i.test(navigator.userAgent),
     lightboxMobileNewTab: 1,
     isVideoAutoplayAllowed: function () {
@@ -1518,11 +1519,10 @@ N2D('EventBurrito', function ($, undefined) {
             isRealScrolling,
             eventType,
             clicksAllowed = true, //flag allowing default click actions (e.g. links)
-            eventModel = (support.pointerEvents ? 1 : (support.msPointerEvents ? 2 : 0)),
+            eventModel = (support.pointerEvents ? 1 : 0),
             events = [
                 ['touchstart', 'touchmove', 'touchend', 'touchcancel'], //touch events
                 ['pointerdown', 'pointermove', 'pointerup', 'pointercancel'], //pointer events
-                ['MSPointerDown', 'MSPointerMove', 'MSPointerUp', 'MSPointerCancel'], //IE10 pointer events
                 ['mousedown', 'mousemove', 'mouseup', false] //mouse events
             ],
             //some checks for different event types
@@ -1539,11 +1539,6 @@ N2D('EventBurrito', function ($, undefined) {
                     //2. left mouse button is not pressed,
                     //3. mouse drag is disabled and event is not touch
                     return !e.isPrimary || (e.buttons && e.buttons !== 1) || (!o.mouse && e.pointerType !== 'touch' && e.pointerType !== 'pen');
-                },
-                //IE10 pointer events
-                function (e) {
-                    //same checks as in pointer events
-                    return !e.isPrimary || (e.buttons && e.buttons !== 1) || (!o.mouse && e.pointerType !== e.MSPOINTER_TYPE_TOUCH && e.pointerType !== e.MSPOINTER_TYPE_PEN);
                 },
                 //mouse events
                 function (e) {
@@ -1666,7 +1661,7 @@ N2D('EventBurrito', function ($, undefined) {
             if (Math.abs(diff.x) > o.clickTolerance || Math.abs(diff.y) > o.clickTolerance) clicksAllowed = false; //if there was a move -- deny all the clicks before the next touchstart
 
             //check whether the user is trying to scroll vertically
-            if (isScrolling === undefined && eventType !== 3) {
+            if (isScrolling === undefined && eventType !== 2) {
                 //assign and check `isScrolling` at the same time
                 if (isScrolling = (Math.abs(diff.x) < Math.abs(diff.y)) && !o.preventScroll) return;
             }
@@ -1723,8 +1718,8 @@ N2D('EventBurrito', function ($, undefined) {
 
             //bind mousedown if necessary
             if (o.mouse && !eventModel) {
-                listeners.push(addEvent(_this, events[3][0], function (e) {
-                    tStart(e, 3);
+                listeners.push(addEvent(_this, events[2][0], function (e) {
+                    tStart(e, 2);
                 }));
             }
 

@@ -68,16 +68,20 @@ abstract class N2SSItemAbstract {
         $link   = $this->data->get('href', '#');
         $target = $this->data->get('href-target', '#');
         $rel    = $this->data->get('href-rel', '#');
+        $class  = $this->data->get('href-class', '');
 
         if (($link != '#' && !empty($link)) || $renderEmpty === true) {
 
             $link = N2LinkParser::parse($this->layer->getOwner()
-                                                    ->fill($link), $attributes, $this->isEditor);
+                ->fill($link), $attributes, $this->isEditor);
             if (!empty($target) && $target != '_self') {
                 $attributes['target'] = $target;
             }
             if (!empty($rel)) {
                 $attributes['rel'] = $rel;
+            }
+            if (!empty($class)) {
+                $attributes['class'] = $class;
             }
 
             return N2Html::link($content, $link, $attributes);

@@ -14,6 +14,7 @@ class NextendSmartSlider3Gutenberg {
     public function enqueue_block_editor_assets() {
 
         wp_enqueue_script('gutenberg-smartslider3', plugins_url('block.js', __FILE__), array(
+            'wp-block-library',
             'wp-blocks',
             'wp-element',
             'wp-components',

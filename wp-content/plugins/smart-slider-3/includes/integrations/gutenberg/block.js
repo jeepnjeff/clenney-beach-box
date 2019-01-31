@@ -33,10 +33,29 @@
         },
         save: function (props) {
             var attributes = props.attributes;
-            return (
-                attributes.slider && el('div', {className: props.className + ' gutenberg-smartslider3'}, '[smartslider3 slider="' + attributes.slider + '"]')
-            );
-        }
+
+            if (attributes.slider) {
+
+                return el('div', {className: props.className}, '[smartslider3 slider="' + attributes.slider + '"]');
+            }
+
+            return null;
+        },
+        deprecated: [
+            {
+                attributes: {
+                    slider: {
+                        type: 'string'
+                    }
+                },
+                save: function (props) {
+                    var attributes = props.attributes;
+                    return (
+                        attributes.slider && el('div', {className: props.className + ' gutenberg-smartslider3'}, '[smartslider3 slider="' + attributes.slider + '"]')
+                    );
+                }
+            }
+        ]
     });
 
 })(

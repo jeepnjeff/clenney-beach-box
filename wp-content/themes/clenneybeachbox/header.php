@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme
  *
@@ -13,10 +14,12 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 <!-- Latest compiled and minified CSS -->
+
+
 <link rel="stylesheet" href="wp-content/themes/clenneybeachbox/assets/jquery-ui-1.12.1/jquery-ui.css">
 		<script type="text/javascript" src="wp-content/themes/clenneybeachbox/assets/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
 		
@@ -43,7 +46,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'clenneybeachbox' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'clenneybeachbox'); ?></a>
 
  <!--
       -- 💪💪💪 HEADER 💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪💪
@@ -66,12 +69,12 @@
 						</div>
 
 <?php
-	wp_nav_menu(array(
-		'theme_location' => 'primary',
-		'container' => 'nav',
-		'container_class' => 'navbar-collapse collapse',
-		'menu_class' => 'nav navbar-nav navbar-right header-nav'
-	));
+wp_nav_menu(array(
+	'theme_location' => 'primary',
+	'container' => 'nav',
+	'container_class' => 'navbar-collapse collapse',
+	'menu_class' => 'nav navbar-nav navbar-right header-nav'
+));
 ?>
 
 				</div>

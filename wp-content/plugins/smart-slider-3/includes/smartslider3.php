@@ -14,10 +14,11 @@ class SmartSlider3 {
 
         if (get_option("n2_ss3_version") != N2SS3::$completeVersion) {
             self::install();
+        } else if (isset($_REQUEST['repairss3']) && current_user_can('manage_options') && check_admin_referer('repairss3')) {
+            self::install();
+            wp_redirect(admin_url('admin.php?page=' . NEXTEND_SMARTSLIDER_3_URL_PATH));
+            exit;
         }
-        require_once dirname(__FILE__) . '/blackfriday.php';
-    
-    
 
         add_action('widgets_init', 'SmartSlider3::widgets_init', 11);
         add_action('widgets_admin_page', 'SmartSlider3::widgets_admin_page');
@@ -31,6 +32,8 @@ class SmartSlider3 {
         add_action('admin_menu', 'SmartSlider3::nextendAdminInit');
 
         add_action('network_admin_menu', 'SmartSlider3::nextendNetworkAdminInit');
+
+        add_filter('plugin_action_links', 'SmartSlider3::plugin_action_links', 10, 2);
 
         add_action('delete_blog', 'SmartSlider3::delete_blog', 10, 2);
 
@@ -103,6 +106,14 @@ class SmartSlider3 {
                 N2SS3Shortcode::forceIframe('ajax');
             }
         }
+    }
+
+    public static function plugin_action_links($links, $file) {
+        if ($file === NEXTEND_SMARTSLIDER_3_BASENAME && current_user_can('manage_options')) {
+            $links[] = sprintf('<a href="%s">%s</a>', wp_nonce_url(admin_url('admin.php?page=' . NEXTEND_SMARTSLIDER_3_URL_PATH . '&repairss3=1'), 'repairss3'), 'Repair');
+        }
+
+        return $links;
     }
 
     public static function clear_slider_cache() {
@@ -188,7 +199,7 @@ class SmartSlider3 {
     public static function preRender() {
 
         if (isset($_GET['n2prerender']) && isset($_GET['n2app'])) {
-            if (current_user_can('smartslider')) {
+            if (current_user_can('smartslider') || (!empty($_GET['h']) && ($_GET['h'] === sha1(NONCE_SALT . date('Y-m-d')) || $_GET['h'] === sha1(NONCE_SALT . date('Y-m-d', time() - 60 * 60 * 24))))) {
                 try {
                     N2Base::getApplication($_GET['n2app'])
                           ->getApplicationType(N2Platform::$isAdmin ? 'backend' : 'frontend')

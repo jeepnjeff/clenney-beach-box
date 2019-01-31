@@ -72,11 +72,21 @@ N2D('SmartSliderWidgetBarHorizontal', function ($, undefined) {
 
     SmartSliderWidgetBarHorizontal.prototype.renderBarContent = function (slide) {
         var html = '';
-        if (this.parameters.showTitle && slide.getTitle() !== undefined) {
-            html += '<span class="' + this.parameters.fontTitle + ' n2-ow">' + slide.getTitle() + '</span>';
+        if (this.parameters.showTitle && (slide.getTitle() !== undefined || this.parameters.slideCount)) {
+            if (this.parameters.slideCount) {
+                var title = slide.index + 1;
+            } else {
+                var title = slide.getTitle();
+            }
+            html += '<span class="' + this.parameters.fontTitle + ' n2-ow">' + title + '</span>';
         }
-        if (this.parameters.showDescription && slide.getDescription() !== undefined) {
-            html += '<span class="' + this.parameters.fontDescription + ' n2-ow">' + (html === '' ? '' : this.parameters.separator) + slide.getDescription() + '</span>';
+        if (this.parameters.showDescription && (slide.getDescription() !== undefined || this.parameters.slideCount)) {
+            if (this.parameters.slideCount) {
+                var description = slide.slider.slides.length;
+            } else {
+                var description = slide.getDescription();
+            }
+            html += '<span class="' + this.parameters.fontDescription + ' n2-ow">' + (html === '' ? '' : this.parameters.separator) + description + '</span>';
         }
 
         return html;

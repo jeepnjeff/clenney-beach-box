@@ -35,34 +35,23 @@ class N2SmartSliderFeatureSpinner {
   height: 100%;
   width: 6px;
   display: inline-block;
-  -webkit-animation: n2RectangleDark 1.2s infinite ease-in-out;
   animation: n2RectangleDark 1.2s infinite ease-in-out;
 }
 div.n2-ss-spinner-rectangle-2 {
-  -webkit-animation-delay: -1.1s;
   animation-delay: -1.1s;
 }
 div.n2-ss-spinner-rectangle-3 {
-  -webkit-animation-delay: -1.0s;
   animation-delay: -1.0s;
 }
 div.n2-ss-spinner-rectangle-4 {
-  -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;
-}
-
-@-webkit-keyframes n2RectangleDark {
-  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
-  20% { -webkit-transform: scaleY(1.0) }
 }
 
 @keyframes n2RectangleDark {
   0%, 40%, 100% {
     transform: scaleY(0.4);
-    -webkit-transform: scaleY(0.4);
   }  20% {
     transform: scaleY(1.0);
-    -webkit-transform: scaleY(1.0);
   }
 }'
         ),
@@ -103,14 +92,9 @@ div.n2-ss-spinner-rectangle-4 {
     border-top: 2px solid #fff;
     border-right: 2px solid transparent;
     animation: n2SimpleDark .6s linear infinite;
-    -webkit-animation: n2SimpleDark .6s linear infinite;
 }
 @keyframes n2SimpleDark {
     to {transform: rotate(360deg);}
-}
-
-@-webkit-keyframes n2SimpleDark {
-    to {-webkit-transform: rotate(360deg);}
 }'
         ),
         'simpleDarkCounter'  => array(
@@ -126,7 +110,6 @@ div.n2-ss-spinner-rectangle-4 {
     padding: 10px;
     border-radius: 50%;
     z-index: 1000;
-    -moz-box-sizing: initial;
     box-sizing: initial;
 }
 
@@ -156,14 +139,9 @@ div.n2-ss-spinner-rectangle-4 {
     border-top: 2px solid #fff;
     border-right: 2px solid transparent;
     animation: n2SimpleDarkCounter .6s linear infinite;
-    -webkit-animation: n2SimpleDarkCounter .6s linear infinite;
 }
 @keyframes n2SimpleDarkCounter {
     to {transform: rotate(360deg);}
-}
-
-@-webkit-keyframes n2SimpleDarkCounter {
-    to {-webkit-transform: rotate(360deg);}
 }'
         ),
         'simpleWhite'        => array(
@@ -203,14 +181,9 @@ div.n2-ss-spinner-rectangle-4 {
     border-top: 2px solid #333;
     border-right: 2px solid transparent;
     animation: n2SimpleWhite .6s linear infinite;
-    -webkit-animation: n2SimpleWhite .6s linear infinite;
 }
 @keyframes n2SimpleWhite {
     to {transform: rotate(360deg);}
-}
-
-@-webkit-keyframes n2SimpleWhite {
-    to {-webkit-transform: rotate(360deg);}
 }'
         ),
         'simpleWhiteCounter' => array(
@@ -226,7 +199,6 @@ div.n2-ss-spinner-rectangle-4 {
     padding: 10px;
     border-radius: 50%;
     z-index: 1000;
-    -moz-box-sizing: initial;
     box-sizing: initial;
 }
 
@@ -256,14 +228,9 @@ div.n2-ss-spinner-rectangle-4 {
     border-top: 2px solid #333;
     border-right: 2px solid transparent;
     animation: n2SimpleWhiteCounter .6s linear infinite;
-    -webkit-animation: n2SimpleWhiteCounter .6s linear infinite;
 }
 @keyframes n2SimpleWhiteCounter {
     to {transform: rotate(360deg);}
-}
-
-@-webkit-keyframes n2SimpleWhiteCounter {
-    to {-webkit-transform: rotate(360deg);}
 }'
         ),
         'infiniteDark'       => array(
@@ -300,13 +267,9 @@ div.n2-ss-spinner-rectangle-4 {
     border: 2px solid rgba(255, 255, 255, .3);
     border-top-color: #fff;
     animation: n2InfiniteDark .6s linear infinite;
-    -webkit-animation: n2InfiniteDark .6s linear infinite;
 }
 @keyframes n2InfiniteDark {
     to {transform: rotate(360deg);}
-}
-@-webkit-keyframes n2InfiniteDark {
-    to {-webkit-transform: rotate(360deg);}
 }'
         ),
         'infiniteWhite'      => array(
@@ -343,13 +306,9 @@ div.n2-ss-spinner-rectangle-4 {
     border: 2px solid rgba(0, 0, 0, .3);
     border-top-color: rgba(0, 0, 0, .6);
     animation: n2InfiniteWhite .6s linear infinite;
-    -webkit-animation: n2InfiniteWhite .6s linear infinite;
 }
 @keyframes n2InfiniteWhite {
     to {transform: rotate(360deg);}
-}
-@-webkit-keyframes n2InfiniteWhite {
-    to {-webkit-transform: rotate(360deg);}
 }'
         )
     );

@@ -97,13 +97,13 @@ class N2SmartSliderFeatureFadeOnLoad {
 
     private function makeImage($sizes) {
         $html = N2Html::image("data:image/svg+xml;base64," . $this->transparentImage($sizes['width'] + $sizes['marginHorizontal'], $sizes['height']), 'Slider', array(
-            'style' => 'width: 100%; max-width:' . ($this->slider->features->responsive->maximumSlideWidth + $sizes['marginHorizontal']) . 'px; display: block;opacity:0;',
+            'style' => 'width: 100%; max-width:' . ($this->slider->features->responsive->maximumSlideWidth + $sizes['marginHorizontal']) . 'px; display: block;opacity:0;margin:0px;',
             'class' => 'n2-ow'
         ));
 
         if ($sizes['marginVertical'] > 0) {
             $html .= N2Html::image("data:image/svg+xml;base64," . $this->transparentImage($sizes['width'] + $sizes['marginHorizontal'], $sizes['marginVertical']), 'Slider', array(
-                'style' => 'width: 100%;',
+                'style' => 'width: 100%;margin:0px;',
                 'class' => 'n2-ow'
             ));
         }

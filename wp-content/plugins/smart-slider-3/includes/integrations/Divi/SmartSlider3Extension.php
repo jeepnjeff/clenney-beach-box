@@ -12,6 +12,9 @@ class DiviSmartSlider3Extension extends DiviExtension {
         $this->plugin_dir     = plugin_dir_path(__FILE__);
         $this->plugin_dir_url = plugin_dir_url(__FILE__);
 
+        $this->_builder_js_data = array(
+            'iframeUrl' => site_url('') . '?n2prerender=1&n2app=smartslider&n2controller=slider&n2action=iframe&h=' . sha1(NONCE_SALT . date('Y-m-d'))
+        );
 
         parent::__construct($name, $args);
 
@@ -49,24 +52,6 @@ class DiviSmartSlider3Extension extends DiviExtension {
                 'react-dom'
             )
         );
-    }
-
-    /**
-     * Enqueues the extension's scripts and styles.
-     * {@see 'wp_enqueue_scripts'}
-     *
-     * @since 3.1
-     */
-    public function wp_hook_enqueue_scripts() {
-
-        if (et_core_is_fb_enabled()) {
-
-            $styles_url = "{$this->plugin_dir_url}styles/style.min.css";
-
-            wp_enqueue_style("{$this->name}-styles", $styles_url, array(), $this->version);
-        }
-
-        $this->_enqueue_bundles();
     }
 
     public function admin_enqueue_scripts() {

@@ -31,7 +31,7 @@ class N2SmartSliderFeatureAlign {
                 case 'left':
                 case 'right':
                     $width                = $this->slider->assets->sizes['width'];
-                    $htmlOptions["style"] = "float: {$this->align}; width: {$width}px;";
+                    $htmlOptions["style"] = "float: {$this->align}; width: {$width}px; max-width:100%;";
                     break;
                 case 'center':
                     $htmlOptions["style"] = "margin: 0 auto; max-width: {$maxWidth}px;";

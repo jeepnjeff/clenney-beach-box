@@ -35,9 +35,16 @@ class N2SmartSliderTypeSimple extends N2SmartSliderType {
         $this->loadResources();
 
         $background = $params->get('background');
+        $backgroundColor = $params->get('background-color', '');
         $sliderCSS  = $params->get('slider-css');
         if (!empty($background)) {
             $sliderCSS .= 'background-image: URL(' . N2ImageHelper::fixed($background) . ');';
+        }
+        if (!empty($backgroundColor)) {
+            $rgba = N2Color::hex2rgba($backgroundColor);
+            if ($rgba[3] != 0) {
+                $sliderCSS .= 'background-color:RGBA(' . $rgba[0] . ',' . $rgba[1] . ',' . $rgba[2] . ',' . round($rgba[3] / 127, 2) . ');';
+            }
         }
 
         $slideCSS = $params->get('slide-css');

@@ -1,4 +1,7 @@
 if (typeof window.n2SSIframeLoader !== "function") {
+    if (typeof window.jQuery === 'undefined' && typeof window.parent !== 'undefined') {
+        window.jQuery = window.parent.jQuery;
+    }
     (function ($) {
         var frames = [],
             eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
@@ -126,7 +129,14 @@ if (typeof window.n2SSIframeLoader !== "function") {
         };
 
         S.prototype.getClientHeight = function (e) {
-            var clientHeight = 0;
+            var document = window.document,
+                clientHeight = 0;
+            try {
+                if (window.parent && window.parent !== window) {
+                    document = window.parent.document;
+                }
+            } catch (e) {
+            }
             if (window.matchMedia && (/Android|iPhone|iPad|iPod|BlackBerry/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
                 var innerHeight,
                     isOrientationChanged = false,
@@ -171,5 +181,5 @@ if (typeof window.n2SSIframeLoader !== "function") {
         window.n2SSIframeLoader = function (iframe) {
             frames.push(new S(iframe, frames.length));
         }
-    })(jQuery);
+    })(window.jQuery);
 }

@@ -58,7 +58,9 @@ abstract class N2SmartSliderType {
     protected abstract function renderType($css);
 
     protected function getSliderClasses() {
-        return $this->slider->features->fadeOnLoad->getSliderClass();
+        $alias      = $this->slider->getAlias();
+        $fadeOnLoad = $this->slider->features->fadeOnLoad->getSliderClass();
+        return $alias . ' ' . $fadeOnLoad;
     }
 
     protected function openSliderElement() {

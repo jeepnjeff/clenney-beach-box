@@ -1866,7 +1866,7 @@ N2D('Spectrum', function ($, undefined) {
             var c = tiny.toHsl().l < 0.5 ? "n2-sp-thumb-el n2-sp-thumb-dark" : "n2-sp-thumb-el n2-sp-thumb-light";
             c += (tinycolor.equals(color, p[i])) ? " n2-sp-thumb-active" : "";
 
-            var swatchStyle = rgbaSupport ? ("background-color:" + tiny.toRgbString()) : "filter:" + tiny.toFilter();
+            var swatchStyle = "background-color:" + tiny.toRgbString();
             html.push('<span title="' + tiny.toRgbString() + '" data-color="' + tiny.toRgbString() + '" class="' + c + '"><span class="n2-sp-thumb-inner" style="' + swatchStyle + ';" /></span>');
         }
         return "<div class='n2-sp-cf " + className + "'>" + html.join('') + "</div>";
@@ -2351,17 +2351,8 @@ N2D('Spectrum', function ($, undefined) {
                 var rgb = realColor.toRgb();
                 rgb.a = 0;
                 var realAlpha = tinycolor(rgb).toRgbString();
-                var gradient = "linear-gradient(left, " + realAlpha + ", " + realHex + ")";
-
-                if (IE) {
-                    alphaSliderInner.css("filter", tinycolor(realAlpha).toFilter({gradientType: 1}, realHex));
-                }
-                else {
-                    alphaSliderInner.css("background", "-webkit-" + gradient);
-                    alphaSliderInner.css("background", "-moz-" + gradient);
-                    alphaSliderInner.css("background", "-ms-" + gradient);
-                    alphaSliderInner.css("background", gradient);
-                }
+                var gradient = "linear-gradient(to right, " + realAlpha + ", " + realHex + ")";
+                alphaSliderInner.css("background", gradient);
             }
 
 
@@ -4501,7 +4492,6 @@ N2D('BasicCSSFont', ['BasicCSSSkeleton'], function ($, undefined) {
             afont: $('#layerfamily'),
             color: $('#layercolor'),
             size: $('#layersize'),
-            bold: $('#layerweight'),
             weight: $('#layerweight'),
             lineheight: $('#layerlineheight'),
             align: $('#layertextalign'),
@@ -4515,6 +4505,24 @@ N2D('BasicCSSFont', ['BasicCSSSkeleton'], function ($, undefined) {
 
     BasicCSSFont.prototype = Object.create(N2Classes.BasicCSSSkeleton.prototype);
     BasicCSSFont.prototype.constructor = BasicCSSFont;
+
+    BasicCSSFont.prototype.setValue = function (value) {
+        for (var i = 0; i < value.length; i++) {
+            if (value[i].bold !== undefined) {
+                if (value[i].weight !== undefined) {
+                    delete value[i].bold;
+                } else {
+                    if (value[i].bold == 1) {
+                        value[i].weight = 700;
+                    } else if (value[i].bold > 0) {
+                        value[i].weight = value[i].bold;
+                    }
+                    delete value[i].bold;
+                }
+            }
+        }
+        this.value = value;
+    }
 
     BasicCSSFont.prototype._transformsize = function (value) {
         return value.split('||').join('|*|');
@@ -4686,10 +4694,14 @@ N2D('BasicCSSSkeleton', function ($, undefined) {
         this.$visualsLabel.html(this.visuals[index].field.getLabel());
 
         nextend[this._singular + 'Manager'].getDataFromController(this.visuals[index].value, {previewMode: this.visuals[index].mode}, $.proxy(function (value, tabs) {
-            this.value = value;
+            this.setValue(value);
             this.setTabs(tabs);
         }, this));
     };
+
+    BasicCSSSkeleton.prototype.setValue = function (value) {
+        this.value = value;
+    }
 
     BasicCSSSkeleton.prototype.activateTab = function (index) {
         this.isReload = true;
@@ -6415,6 +6427,7 @@ N2D('FormElementRadio', ['FormElement'], function ($, undefined) {
         this.options = this.options.add(option);
         return i;
     };
+
     FormElementRadio.prototype.removeTabOption = function (value) {
         var i = $.inArray(value, this.values);
         var option = this.options.eq(i);
@@ -14100,13 +14113,7 @@ N2D('nUINormalSizing', ['nUIMouse'], function ($, undefined) {
         }
 
         this._handles = this.element.find("> .nui-normal-sizing-handle");
-        this._handles.css({
-            '-ms-user-select': 'none',
-            '-moz-user-select': '-moz-none',
-            '-khtml-user-select': 'none',
-            '-webkit-user-select': 'none',
-            'user-select': 'none'
-        });
+        this._handles.addClass('n2-unselectable');
     };
 
     nUINormalSizing.prototype._removeHandles = function () {
@@ -14403,13 +14410,7 @@ N2D('nUIResizable', ['nUIMouse'], function ($, undefined) {
         this._renderAxis(this.element);
 
         this._handles = this._handles.add(this.element.find(".nui-resizable-handle"));
-        this._handles.css({
-            '-ms-user-select': 'none',
-            '-moz-user-select': '-moz-none',
-            '-khtml-user-select': 'none',
-            '-webkit-user-select': 'none',
-            'user-select': 'none'
-        });
+        this._handles.addClass('n2-unselectable');
 
         this._handles.on("mouseover", function () {
             if (!that.resizing) {
@@ -14702,14 +14703,8 @@ N2D('nUIResizable', ['nUIMouse'], function ($, undefined) {
             });
 
             this.helper
-                .appendTo("body")
-                .css({
-                    '-ms-user-select': 'none',
-                    '-moz-user-select': '-moz-none',
-                    '-khtml-user-select': 'none',
-                    '-webkit-user-select': 'none',
-                    'user-select': 'none'
-                });
+                .addClass('n2-unselectable')
+                .appendTo("body");
 
         } else {
             this.helper = this.element;
@@ -15730,15 +15725,9 @@ N2D('nUISpacing', ['nUIMouse'], function ($, undefined) {
             hname = "nui-spacing-" + handle;
             this.handles[handle] = axis = $("<div>")
                 .addClass("nui-spacing-handle nui-spacing-handle-" + o.mode + " nui-spacing-handle " + hname)
+                .addClass('n2-unselectable')
                 .on('mousedown', $.proxy(this._mouseDown, this))
-                .appendTo(this.element)
-                .css({
-                    '-ms-user-select': 'none',
-                    '-moz-user-select': '-moz-none',
-                    '-khtml-user-select': 'none',
-                    '-webkit-user-select': 'none',
-                    'user-select': 'none'
-                });
+                .appendTo(this.element);
 
             nextend.tooltip.addElement(this.handles[handle], N2Classes.StringHelper.capitalize(o.mode) + ' ' + o.side[handle]);
 

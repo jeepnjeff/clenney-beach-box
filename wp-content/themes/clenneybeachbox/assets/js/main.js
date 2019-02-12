@@ -73,7 +73,8 @@ $.fn.goValidate = function () {
 
 	$form.submit(function (e) {
 
-		$inputs.each(function () { /* test each input */
+		$inputs.each(function () {
+			/* test each input */
 			if ($(this).is('.required') || $(this).hasClass('invalid')) {
 				showError($(this));
 			}
@@ -81,7 +82,8 @@ $.fn.goValidate = function () {
 
 
 
-		if ($form.find('input.invalid').length) { /* form is not valid */
+		if ($form.find('input.invalid').length) {
+			/* form is not valid */
 			e.preventDefault();
 			$('#form-error').toggleClass('hide');
 		} else {
@@ -208,7 +210,7 @@ var scrolltotop = {
 };
 scrolltotop.init();
 jQuery(document).ready(function ($) {
-	if (localStorage.getItem('advertOnce') !== 'false') { }
+	if (localStorage.getItem('advertOnce') !== 'false') {}
 	$('#advert-once .advert-button').on('click', function () {
 		$('#advert-once').hide();
 	});
@@ -236,7 +238,7 @@ $(function () {
 // End of Date Picker
 
 
-
+// This adds link to Contact Us main menu item
 jQuery(document).ready(function ($) {
 	// Adding Bootstrap Modal to WordPress Menu
 	$('.launch-contact-modal').find('a').attr('data-toggle', 'modal');

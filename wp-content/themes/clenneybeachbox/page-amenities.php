@@ -12,8 +12,9 @@ $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 <!-- Amenities -->
 <!-- Title Section -->
 <?php if (has_post_thumbnail()) {// check for feature image ?>
-
-<section class="amen-img" style="background: url('<?php echo $thumbnail_url; ?>') no-repeat; background-size: cover" ;
+<!-- a) select element and set attributes --> 
+<section class="amen-img"
+  style="background: url('<?php echo $thumbnail_url; ?>') no-repeat; background-size: cover" ;
   data-type="background" data-speed="2">
   <h1 class="page-title amen-header amen-title aligncenter">AMENITIES</h1>
 </section>
@@ -28,9 +29,8 @@ $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 <?php 
 } ?>
 <!-- End Title Section -->
-
-<section>
-  <div class="row">
+<section class="wrapper">
+  <div class="row no-gutter">
     <div class="col-sm-10 col-sm-offset-1 amen-section">
 
       <?php while (have_posts()) : the_post(); ?>

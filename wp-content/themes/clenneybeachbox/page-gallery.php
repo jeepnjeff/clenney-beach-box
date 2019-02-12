@@ -13,7 +13,7 @@ Template Name: Gallery Page
 
 <section>
 
-   <div class="gallery-header-box">
+   <div class="gallery-header-box no-gutters">
       <h1 class="gallery-header-title galler-header-title-box aligncenter">HOUSE GALLERY</h1>
    </div>
 

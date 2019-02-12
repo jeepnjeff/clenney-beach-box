@@ -32,7 +32,11 @@
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
 
-    <link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/lightbox/css/lightbox.css">
+		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/lightbox/css/lightbox.css">
+		
+
+
+		
 
 	<?php wp_head(); ?>
 

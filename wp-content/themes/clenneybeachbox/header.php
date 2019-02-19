@@ -21,16 +21,16 @@
 
 
 <link rel="stylesheet" href="wp-content/themes/clenneybeachbox/assets/jquery-ui-1.12.1/jquery-ui.css">
-		<script type="text/javascript" src="wp-content/themes/clenneybeachbox/assets/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
 		
-    <script type="text/javascript" src="./wp-content/themes/clenneybeachbox/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand|Montserrat|Roboto" rel="stylesheet">
 
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/lightbox/css/lightbox.css">
 		
@@ -69,7 +69,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 						</button>
-								<a class="navbar-brand" href="#"><img class="logo-img" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/clenney-logo.png" alt="Clenney Box Logo"></a>
+								<a class="navbar-brand" href=""><img class="logo-img" src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/clenney-logo.png" alt="Clenney Box Logo"></a>
 						</div>
 
 <?php

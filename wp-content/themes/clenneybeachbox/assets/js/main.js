@@ -133,11 +133,6 @@ $(function () {
 //
 
 
-
-
-
-
-
 //
 // 💪💪💪 SCROLL TO TOP 💪💪💪💪💪💪💪💪💪💪💪💪
 //
@@ -148,7 +143,7 @@ var scrolltotop = {
 		scrollduration: 1e3,
 		fadeduration: [500, 100]
 	},
-	controlHTML: '<img src="./wp-content/themes/clenneybeachbox/assets/images/up-arrow.svg" />',
+	controlHTML: '<img class="up-arrow" src="./wp-content/themes/clenneybeachbox/assets/images/up-arrow.svg" />',
 	controlattrs: {
 		offsetx: 100,
 		offsety: 75
@@ -215,9 +210,6 @@ jQuery(document).ready(function ($) {
 		$('#advert-once').hide();
 	});
 });
-
-
-
 
 //
 // 💪💪💪💪💪💪 END SCROLL TO TOP 💪💪💪💪💪

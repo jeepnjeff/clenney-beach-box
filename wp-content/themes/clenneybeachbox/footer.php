@@ -35,8 +35,8 @@
 
 <!-- FOOTER
 	================================================== -->
-<footer class="footer navbar-fixed-bottom">
-    <div class="row">
+<footer class="footer">
+    <div class="row no-gutters">
         <div class="col-sm-3 footer-logo ">
             <p>
                 <a href="www.cleannybeachbox.com "><img class="aligncenter footer-logo " src="<?php bloginfo('stylesheet_directory'); ?>/assets/images/clenney-logo.png"
@@ -46,13 +46,14 @@
         <!-- end col -->
         <div class="col-sm-6">
             <nav class="footer-nav-space">
-                <ul class="list-unstyled list-inline text-center">
-                    <li class="active"><a class="footer-nav-dec" href="/">Home</a></li>
-                    <li><a class="footer-nav-dec" href="#about">About</a></li>
-                    <li><a class="footer-nav-dec" href="#amenities">Amenities</a></li>
-                    <li><a class="footer-nav-dec" href="#photos">Photo Gallery</a></li>
-                    <li><a class="footer-nav-dec" data-toggle="modal" data-target="#myModal">Contact</a></li>
-                </ul>
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'primary',
+                'container' => 'nav',
+                'container_class' => 'navbar-collapse collapse',
+                'menu_class' => 'nav navbar-nav footer-nav-menu'
+            ));
+            ?>
             </nav>
         </div>
         <!-- end col -->
@@ -117,8 +118,6 @@
                             <option value="10">10</option>
                         </select>
                     </div>
-
-                    s
 
                     <div class="text-center">
 

@@ -13,17 +13,17 @@ $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 <!-- Title Section -->
 <?php if (has_post_thumbnail()) {// check for feature image ?>
 <!-- a) select element and set attributes --> 
-<section class="amen-img"
+<section class="blog-header-box"
   style="background: url('<?php echo $thumbnail_url; ?>') no-repeat; background-size: cover" ;
   data-type="background" data-speed="2">
-  <h1 class="page-title amen-header amen-title aligncenter">AMENITIES</h1>
+  <h1 class="blog-header-title-box" data-text="[AMENITIES_PAGE]">[AMENITIES_PAGE]</h1>
 </section>
 
 <?php 
 } else { //fallback image  ?>
 
 <section class="amen-img" data-type="background" data-speed="2">
-  <h1 class="page-title amen-header amen-title aligncenter">AMENITIES</h1>
+<h1 class="blog-header-title-box" data-text="[AMENITIES_PAGE]">[AMENITIES_PAGE]</h1>
 </section>
 
 <?php 
@@ -72,6 +72,5 @@ $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
   </div>
 
 </section>
-
 
 <?php get_footer(); ?>

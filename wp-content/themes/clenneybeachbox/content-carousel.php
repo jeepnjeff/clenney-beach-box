@@ -1,8 +1,8 @@
 <?php 
-$carousel_title	          =get_field('carousel_title');
-$carousel_desc	          =get_field('carousel_description');
-$carousel_button_text	    =get_field('carousel_button_text');
-$carousel_button_link	    =get_field('carousel_button_link');
+$carousel_title = get_field('carousel_title');
+$carousel_desc = get_field('carousel_description');
+$carousel_button_text = get_field('carousel_button_text');
+$carousel_button_link = get_field('carousel_button_link');
 ?>
 
 <!--
@@ -15,18 +15,18 @@ $carousel_button_link	    =get_field('carousel_button_link');
 
 
       <div class="col-sm-6 col-sm-offset-3 carousel-text-box">
-        <h1 class="carousel-heading">
-          <?php echo($carousel_title); ?>
+        <h1 class="carousel-heading carousel-header-title-box" data-text="[Clenney_Beach_Box]">
+          <?php echo ($carousel_title); ?>
         </h1>
 
         <p class="carousel-paragraph">
-          <?php echo($carousel_desc); ?>
+          <?php echo ($carousel_desc); ?>
         </p>
-        <button type="button" data-toggle="modal" href="<?php echo ($carousel_button_link); ?>" class="btn btn-primary carousel-button aligncenter">
-          <?php echo($carousel_button_text); ?> </button>
+        <button type="button" data-toggle="modal" href="#myModal" class="btn btn-primary carousel-button aligncenter">
+          <?php echo ($carousel_button_text); ?> </button>
       </div>
       <!-- Wrapper for slides -->
-      <?php  echo do_shortcode('[smartslider3 slider=2]');?>
+      <?php echo do_shortcode('[smartslider3 slider=2]'); ?>
     </div>
   </div>
 </div>

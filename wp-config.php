@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The base configuration for WordPress
  *
@@ -37,7 +38,7 @@ define('DB_CHARSET', 'utf8');
 /** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-define('FS_METHOD','direct');
+define('FS_METHOD', 'direct');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -48,15 +49,15 @@ define('FS_METHOD','direct');
  *
  * @since 2.6.0
  */
-	define('AUTH_KEY',         'oz}q[-0y:~N<d#8f4b^A^A^Rn7<f^Hh&y{.m9;H.5EqqcyK.`,f(W%[$vG4#6xH6');
-	define('SECURE_AUTH_KEY',  'm1f|@Ns(?Uhnr2dVbETcYEJ`Z{I`au7}|.GVjnC`q;3zL4Xi**7r}OH[>1cv*=ku');
-	define('LOGGED_IN_KEY',    'omB1n8PMTnZqM}lG&yZ<:-=A;,{cpK+n(M|+ _.HGA_:RU[.E4rS eR;Ldf.(|5:');
-	define('NONCE_KEY',        'm553w3a]1W~NFtS|ICvE4R7K@Wf-F#mxrk}B#N;]QOLE(+gS]?bZCZ=3;}f&?uz6');
-	define('AUTH_SALT',        '^yb%T.fo>~3@z>zApr-mn./g#4mL*-Bf.+-N^%ejBf22R>c.-(E$|RBXl,$5W});');
-	define('SECURE_AUTH_SALT', 'puF0>UJL_w]e[6Ti{_AJP.kfA.S[Qt~Fv5C=/,@CwOxI@o9/-G-^Ypt<AU]Y4!8.');
-	define('LOGGED_IN_SALT',   '}%jc:W:p, US- yGisAsN~?Zo+a_-Mx>&O(2U[e$$-+P*x=.)!mW&SkZ0}xY05K]');
-	define('NONCE_SALT',       'U$HGzdla<%%TEq-=znC6Xu;9V&ZQKP~Ku52_Fe1SJZ6/M9a+EFI_%M+]+Z*=v1DA');
-	
+define('AUTH_KEY', 'oz}q[-0y:~N<d#8f4b^A^A^Rn7<f^Hh&y{.m9;H.5EqqcyK.`,f(W%[$vG4#6xH6');
+define('SECURE_AUTH_KEY', 'm1f|@Ns(?Uhnr2dVbETcYEJ`Z{I`au7}|.GVjnC`q;3zL4Xi**7r}OH[>1cv*=ku');
+define('LOGGED_IN_KEY', 'omB1n8PMTnZqM}lG&yZ<:-=A;,{cpK+n(M|+ _.HGA_:RU[.E4rS eR;Ldf.(|5:');
+define('NONCE_KEY', 'm553w3a]1W~NFtS|ICvE4R7K@Wf-F#mxrk}B#N;]QOLE(+gS]?bZCZ=3;}f&?uz6');
+define('AUTH_SALT', '^yb%T.fo>~3@z>zApr-mn./g#4mL*-Bf.+-N^%ejBf22R>c.-(E$|RBXl,$5W});');
+define('SECURE_AUTH_SALT', 'puF0>UJL_w]e[6Ti{_AJP.kfA.S[Qt~Fv5C=/,@CwOxI@o9/-G-^Ypt<AU]Y4!8.');
+define('LOGGED_IN_SALT', '}%jc:W:p, US- yGisAsN~?Zo+a_-Mx>&O(2U[e$$-+P*x=.)!mW&SkZ0}xY05K]');
+define('NONCE_SALT', 'U$HGzdla<%%TEq-=znC6Xu;9V&ZQKP~Ku52_Fe1SJZ6/M9a+EFI_%M+]+Z*=v1DA');
+
 /**#@-*/
 
 /**
@@ -65,7 +66,7 @@ define('FS_METHOD','direct');
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'dbcbb_';
+$table_prefix = 'dbcbb_';
 
 /**
  * For developers: WordPress debugging mode.
@@ -84,7 +85,7 @@ define('WP_DEBUG', false);
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
+if (!defined('ABSPATH'))
 	define('ABSPATH', dirname(__FILE__) . '/');
 
 /** Sets up WordPress vars and included files. */

@@ -16,14 +16,14 @@ $thumbnail_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID));
 <section class="blog-header-box"
   style="background: url('<?php echo $thumbnail_url; ?>') no-repeat; background-size: cover" ;
   data-type="background" data-speed="2">
-  <h1 class="blog-header-title-box" data-text="[AMENITIES_PAGE]">[AMENITIES_PAGE]</h1>
+  <h1 class="amen-header-title-box" data-text="[AMENITIES_PAGE]">[AMENITIES_PAGE]</h1>
 </section>
 
 <?php 
 } else { //fallback image  ?>
 
 <section class="amen-img" data-type="background" data-speed="2">
-<h1 class="blog-header-title-box" data-text="[AMENITIES_PAGE]">[AMENITIES_PAGE]</h1>
+<h1 class="amen-header-title-box" data-text="[AMENITIES_PAGE]">[AMENITIES_PAGE]</h1>
 </section>
 
 <?php 

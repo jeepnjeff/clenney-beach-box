@@ -20,13 +20,14 @@
 <!-- Latest compiled and minified CSS -->
 
 
-<link rel="stylesheet" href="wp-content/themes/clenneybeachbox/assets/jquery-ui-1.12.1/jquery-ui.css">
 		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/jquery-ui-1.12.1/external/jquery/jquery.js"></script>
 		
-    <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/assets/jquery-ui-1.12.1/jquery-ui.js"></script>
 
+		<link rel="stylesheet" href="wp-content/themes/clenneybeachbox/assets/jquery-ui-1.12.1/jquery-ui.css">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
@@ -34,10 +35,7 @@
 
 		<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/lightbox/css/lightbox.css">
 		
-
-
-		
-
+	
 	<?php wp_head(); ?>
 
 <!--[if lt IE 9]>
@@ -62,7 +60,7 @@
 		<!-- NavBar======================== -->
 		<div class="navbar navbar-inverse navbar-fixed-top header-box header-gradient" role="navigation">
 				<div class="container">
-						<div class="navbar-header">
+						<div class="navbar-header ">
 								<button type="button" class="navbar-toggle" data-toggle="collapse" date-target=".navbar-collapse">
 								<span class="sr-only">Toggle Navigation</span>
 								<span class="icon-bar"></span>
@@ -77,7 +75,7 @@ wp_nav_menu(array(
 	'theme_location' => 'primary',
 	'container' => 'nav',
 	'container_class' => 'navbar-collapse collapse',
-	'menu_class' => 'nav navbar-nav navbar-right header-nav'
+	'menu_class' => 'nav navbar-nav navbar-right'
 ));
 ?>
 

@@ -12,8 +12,8 @@
  *
  * @package Clenney_Beach_Box
  */
-
-get_header(); ?>
+?>
+<?php get_header(); ?>
 
 <section class="blog-header-box no-gutters">
 	<h1 class="blog-header-title-box" data-text="[BLOG_PAGE]">[BLOG_PAGE]</h1>

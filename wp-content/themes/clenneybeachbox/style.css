@@ -989,7 +989,6 @@ a:hover {
 }
 
 .header-box {
-    /* height: 150px; */
     border: none;
     color: #fff;
 }
@@ -1021,7 +1020,7 @@ a:hover {
     /* IE6-9 */
 }
 
-/*border: 1px solid transparent;💪💪💪💪💪💪💪💪💪💪💪💪💪💪  END HEADER 💪💪💪💪💪
+/*💪💪💪💪💪💪💪💪💪💪💪💪💪💪  END HEADER 💪💪💪💪💪
 			 */
 /*
 
@@ -1184,7 +1183,8 @@ a:hover {
 
 
 .footer-nav-space {
-    padding-top: 5%;
+    padding-top: 3%;
+    padding-left: 20%;
 }
 
 .footer-nav-dec {
@@ -1195,14 +1195,14 @@ a:hover {
 
 .footer-name {
     color: white;
-    margin-top: 2.6%;
-    font-size: 1.4em;
+    margin-top: 2.0%;
+    font-size: 1.2em;
 }
 
 .footer-logo {
     right: 0%;
     height: 70px;
-    margin-top: 1.4%;
+    margin-top: .6%;
 }
 
 
@@ -1347,6 +1347,47 @@ footer {
 
 }
 
+.amen-header-title-box {
+    position: absolute;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
+    font-style: italic;
+    padding: 0 20px;
+    margin: 0 0 0 0;
+    color: #fff;
+    text-shadow: 0px 0px 10px #0033ff;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizelegibility;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.amen-header-title-box:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 0 20px;
+    z-index: 0;
+    color: #0033ff;
+    filter: blur(30px);
+}
+
+.amen-header-title-box:before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: #0033ff;
+    z-index: -1;
+    opacity: .5;
+    filter: blur(30px);
+}
+
+
 .subheader-box {
     background: rgba(190, 71, 0, .9);
     margin-top: 3.5%;
@@ -1415,31 +1456,53 @@ footer {
 }
 
 .gallery-header-title-box {
-    font-size: .9em;
-    background: rgba(190, 71, 0, .8);
-    width: 23%;
-    padding: 5px;
-    margin-bottom: 2%;
-    border-radius: 10px;
-    border: 1px solid #000;
-    text-align: center;
-    font-weight: bolder;
-    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    font-weight: 500;
+    font-family: 'Quicksand', sans-serif;
     font-style: italic;
-    color: #0033ff;
-    text-shadow: 3px 5px 8px#2b2b2b;
+    padding: 0 20px;
+    margin: -13px 0 0 0;
+    color: #fff;
+    text-shadow: 0px 0px 10px #0033ff;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gallery-header-title-box:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    padding: 0 20px;
+    z-index: 0;
+    color: #0033ff;
+    filter: blur(30px);
+}
+
+.-header-title-box:before {
+    content: '';
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: #0033ff;
+    z-index: -1;
+    opacity: .5;
+    filter: blur(30px);
 }
 
 .gallery-header-box {
     margin-top: 0%;
     text-align: center;
-    font-size: 4.5em;
+    font-size: 2.5em;
     background: url('assets/images/sand-starfish.jpg') no-repeat;
     background-size: cover;
     width: 100%;
-    height: 275px;
+    height: 190px;
     position: fixed;
     z-index: 2;
 }
@@ -1447,7 +1510,7 @@ footer {
 .gallery-body {
     background: url('assets/images/blue-background.jpg') no-repeat;
     background-size: cover;
-    margin-top: 11.7%;
+    margin-top: 14%;
     padding-top: 1%;
     /* border: 5px solid #be4700; */
     margin-bottom: 0px;
@@ -1462,11 +1525,13 @@ footer {
 #bwg_container1_0 #bwg_container2_0 .bwg-container-0 .bwg-ecommerce2 {
     color: #eee !important;
     font-family: 'Montserrat', sans-serif !important;
-    padding: 2px;
-
-
+    padding: 2px 2px 9px 2px !important;
 }
 
+#bwg_container1_0 #bwg_container2_0 .bwg-container-0 .bwg-item0 {
+    padding: 4px !important;
+    margin: 0px 10px 0px 10px !important;
+}
 
 
 /* End of Photo Gallery */
@@ -1501,10 +1566,8 @@ footer {
     background: url('assets/images/blue-background.jpg') no-repeat;
     background-size: cover;
     color: #000;
-    margin-top: 11.9%;
-    /* border: 5px solid #be4700; */
+    margin-top: 9.5%;
     padding: 2%;
-    /* z-index: 1; */
 }
 
 .blog-content {
@@ -1514,11 +1577,11 @@ footer {
 .blog-header-box {
     margin-top: -2%;
     text-align: center;
-    font-size: 4.5em;
+    font-size: 2.5em;
     background: url('assets/images/beach-flower1.jpg') no-repeat;
     background-size: cover;
     width: 100%;
-    height: 325px;
+    height: 227px;
     position: fixed;
     z-index: 1;
 }
@@ -1528,14 +1591,13 @@ footer {
     font-weight: 500;
     font-family: 'Quicksand', sans-serif;
     font-style: italic;
-    font-size: 1.4em;
-    padding: 0 20px;
-    margin: 0;
+    padding: 0 10px;
+    margin: 18px 0 0 0;
     color: #fff;
-    text-shadow: 0px 0px 10px #0033ff;
+    text-shadow: 0px 0px 3px #0033ff;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizelegibility;
-    top: 67%;
+    top: 64%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -1545,10 +1607,10 @@ footer {
     position: absolute;
     top: 0%;
     left: 0%;
-    padding: 0 20px;
+    padding: 0 10px;
     z-index: 0;
     color: #0033ff;
-    filter: blur(30px);
+    filter: blur(45px);
 }
 
 .blog-header-title-box:before {
@@ -1561,7 +1623,7 @@ footer {
     background: #0033ff;
     z-index: -1;
     opacity: .5;
-    filter: blur(30px);
+    filter: blur(45px);
 }
 
 
